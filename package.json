@@ -5,7 +5,8 @@
   "main": "main.mjs",
   "scripts": {
     "test": "test",
-    "start": "electron ."
+    "start": "electron .",
+    "build-css": "sass ./assets/scss/main.scss ./main.css"
   },
   "repository": {
     "type": "git",
