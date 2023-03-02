@@ -1,0 +1,22 @@
+{
+  "name": "color-input-desktop-window",
+  "version": "1.0.0",
+  "description": "Application to save beautiful combinations of colors",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanPostarnak/color-input-desktop-window.git"
+  },
+  "author": "Ivan Postarnak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IvanPostarnak/color-input-desktop-window/issues"
+  },
+  "homepage": "https://github.com/IvanPostarnak/color-input-desktop-window#readme",
+  "dependencies": {
+    "electron": "^23.1.1"
+  }
+}
