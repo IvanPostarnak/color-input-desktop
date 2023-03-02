@@ -104,6 +104,7 @@ dist
 .tern-port
 
 #sass
+*.css
 .sass-cache/
 *.css.map
 *.sass.map
