@@ -1,4 +1,4 @@
-const {default:BrowserWindow} = await import('electron');
+const {BrowserWindow} = require('electron');
 
 export async function createPatternsWindow() {
   let patternsWindow = new BrowserWindow({

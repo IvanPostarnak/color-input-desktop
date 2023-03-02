@@ -1,7 +1,7 @@
 import {createPatternsWindow} from '/windows/patterns/patterns.msj'
 
-const { default:app} = await import('electron');
-const { default:BrowserWindow } = await import('electron');
+const {app} = require('electron');
+const {BrowserWindow} = require('electron');
 
 app.whenReady()
 .then(() => {
