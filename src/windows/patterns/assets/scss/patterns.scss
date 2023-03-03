@@ -1,6 +1,7 @@
 @use './../library/squares/squares';
 @use './../library/columns/columns';
 @use './../library/lines/lines';
+@use './../library/bubbles/bubbles';
 
 .patterns {
   width: 100%;
@@ -43,7 +44,7 @@
     min-height: 30vh;
     margin: 1vh;
     
-    background-color: brown;
+    background-color: transparent;
 
     display: flex;
     justify-content: center;
