@@ -4,8 +4,8 @@ const {BrowserWindow} = require('electron');
 app.whenReady()
 .then(() => {
   let patternsWindow = new BrowserWindow({
-    width: 1000,
-    height: 600,
+    width: 1200,
+    height: 800,
     // webPreferences: {
     //   preload: __dirname + "src/preloader/preloader.js"
     // },
