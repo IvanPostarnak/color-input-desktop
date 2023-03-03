@@ -1,3 +1,5 @@
+@use './../library/squares/squares';
+
 .patterns {
   width: 100%;
   height: auto;
@@ -44,5 +46,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: relative;
   }
+}
+
+.js-1 {
+  background-color: #46425E;
+}
+.js-2 {
+  background-color: #15788C;
+}
+.js-3 {
+  background-color: #00B9BE;
+}
+.js-4 {
+  background-color: #FFEECC;
+}
+.js-5 {
+  background-color: #FFB0A3;
+}
+.js-6 {
+  background-color: #FF6973;
 }

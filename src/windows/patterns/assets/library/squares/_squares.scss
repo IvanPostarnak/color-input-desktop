@@ -1,0 +1,14 @@
+.squares-pattern {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+		&__item {
+      width: calc(100%/6);
+      height: 100%;
+		}
+}
