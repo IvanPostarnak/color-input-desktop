@@ -1,4 +1,4 @@
-.squares-pattern {
+.columns-pattern {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -9,8 +9,7 @@
   flex-wrap: wrap;
 
 		&__item {
-      width: calc(100%/3);
-      height: auto;
-      min-height: 15vh;
+      width: calc(100%/6);
+      height: 100%;
 		}
 }
