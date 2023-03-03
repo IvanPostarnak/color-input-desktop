@@ -3,6 +3,7 @@
 @use './../library/lines/lines';
 @use './../library/bubbles/bubbles';
 @use './../library/carpet/carpet';
+@use './../library/chart/chart';
 
 .patterns {
   width: 100%;
@@ -57,19 +58,25 @@
 
 .js-1 {
   background-color: #46425E;
+  color: #46425E;
 }
 .js-2 {
   background-color: #15788C;
+  color: #15788C;
 }
 .js-3 {
   background-color: #00B9BE;
+  color: #00B9BE;
 }
 .js-4 {
   background-color: #FFEECC;
+  color: #FFEECC;
 }
 .js-5 {
   background-color: #FFB0A3;
+  color: #FFB0A3;
 }
 .js-6 {
   background-color: #FF6973;
+  color: #FF6973;
 }
