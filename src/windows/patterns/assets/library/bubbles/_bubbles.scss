@@ -18,8 +18,10 @@
 
 		&__item {
       width: 10vmax;
+      max-width: 15vh;
       height: auto;
-      min-height: 10vmax;
+      min-height: 15vh;
+      max-height: 15vh;
       border-radius: 50%;
 		}
 }
