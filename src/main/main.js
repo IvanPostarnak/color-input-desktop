@@ -7,19 +7,25 @@ const { screen } = require('electron');
 app.whenReady()
 .then(() => {
   let patternsWindow = createPatternsWindow();
+  
+  patternsWindow.once('ready-to-show', () => {
+    patternsWindow.show();
+  });
+
+})
+.then(() => {
   let inputColorsWindow = createInputColorsWindow();
 
   inputColorsWindow.once('ready-to-show', () => {
     inputColorsWindow.show();
   });
-
-  // patternsWindow.once('ready-to-show', () => {
-  //   patternsWindow.show();
-  // });
-
 })
 .catch((err) => {
   
+})
+
+app.on('window-all-closed', () => {
+  app.quit();
 })
 
 
@@ -37,22 +43,30 @@ function createPatternsWindow() {
     show: false
   });
 
-  patternsWindow.loadFile(__dirname + "/../windows/patterns/patterns.html");
-
-  return patternsWindow;
+  patternsWindow.loadFile(__dirname + "/../windows/patterns/patterns.html")
+  .then(() => {
+    return patternsWindow;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 }
 
 function createInputColorsWindow() {
   let inputColorsWindow = new BrowserWindow({
     title: 'Input colors...',
-    width: 1000,
-    height: 600,
+    width: 600,
+    height: 800,
     webPreferences: {
       preload: __dirname + "/../preloader/preloader.js"
-    },
+    }
   });
 
-  // inputColorWindow.loadFile(__dirname + "/../windows/patterns/patterns.html");
-
-  return inputColorsWindow;
+  inputColorsWindow.loadFile(__dirname + "/../windows/input-colors/input-colors.html")
+  .then(() => {
+    return inputColorsWindow;
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 }
