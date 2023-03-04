@@ -51,6 +51,7 @@
 
   &__form-holder {
     width: 100%;
+    max-width: 400px;
     height: 50vh;
 
     background-color: aqua;
@@ -70,6 +71,8 @@
     justify-content: space-between;
     align-items: center;
 
+    margin-bottom: 20px;
+
     background-color: aquamarine;
   }
 
@@ -79,6 +82,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    transition-duration: 0.4s;
 
     &--lock {
       background-image: url(./src/windows/input-colors/assets/img/icons/lock.svg);
@@ -115,4 +119,14 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+.unactive {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.active {
+  opacity: 1;
+  pointer-events: all;
 }
