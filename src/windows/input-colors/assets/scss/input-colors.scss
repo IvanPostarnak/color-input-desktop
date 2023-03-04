@@ -65,7 +65,7 @@
 }
 
 .input-colors {
-  &__color-field-wrapper {
+  &__color-line-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,7 +73,32 @@
     background-color: aquamarine;
   }
 
-  &__color-lock {
+  &__color-line-item {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--lock {
+      background-image: url(./src/windows/input-colors/assets/img/icons/lock.svg);
+    }
+
+    &--hashtag {
+      background-image: url(./src/windows/input-colors/assets/img/icons/hashtag.svg);
+    }
+
+    &--example {
+      background-color: violet;
+    }
+
+    &--accept {
+      background-image: url(./src/windows/input-colors/assets/img/icons/accept.svg);
+    }
+
+    &--reject {
+      background-image: url(./src/windows/input-colors/assets/img/icons/reject.svg);
+    }
   }
 
   &__input-wrapper {
@@ -82,24 +107,12 @@
     align-items: center;
   }
 
-  &__input_sharp {
-  }
-
   &__input {
-  }
-
-  &__color-example {
   }
 
   &__acception-status {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  &__accepted {
-  }
-
-  &__rejected {
   }
 }
