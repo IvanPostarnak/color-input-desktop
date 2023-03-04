@@ -11,8 +11,13 @@ arrayOfInputLines.forEach((inputLine) => {
     // transform string of 7 characters into array of lowerCased symbols
     let inputArray = String(inputLine.querySelector('.js-input').value).trim().toLowerCase().split('');
 
-    // checking the first element, and remove it if it is possible starter ("#")
+    // checking the first element if it is possible starter and ...
     let isHashtaged = isPossibleStarter(inputArray[0]);
+
+    // ... change hashtag status if it was not hashtaged by user
+    toggleHashtag(inputLine, isHashtaged, inputArray.length);
+    
+    // ... remove it from input if it was possible starter ("#")
     if (isHashtaged) {
       inputArray.shift();
     }
@@ -76,5 +81,19 @@ function toggleAcceptionStatus(inputLine, isValidCode, lengthOfColorCode) {
     rejectMark.classList.remove('unactive');
   }
 }
-
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function toggleHashtag(inputLine, isHashtaged, lengthOfColorCode) {
+  // finding hashtag element of the color line
+  let hashtagMark = inputLine.querySelector('.js-hashtag');
+  
+  // if colorCode is empty - turn switcher off
+  // otherwise choose state based on the hashtaged status
+  if (lengthOfColorCode === 0 || isHashtaged) {
+    hashtagMark.classList.add('unactive');
+  } else {
+    hashtagMark.classList.remove('unactive');
+  }
+}
+/////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
