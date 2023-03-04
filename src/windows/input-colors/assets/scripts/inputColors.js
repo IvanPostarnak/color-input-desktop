@@ -20,6 +20,9 @@ arrayOfInputLines.forEach((inputLine) => {
     // checking the code part of inputArray on validation and...
     let isValidCode = isValidColorCode(inputArray) && isValidColorCodeLength(inputArray.length);
 
+    // ...change acception status of input line based on the isValidCode value + input.length
+    toggleAcceptionStatus(inputLine, isValidCode, inputArray.length);
+
     // ...save it into colorCode as STRING, if it was valid
     let colorCode = undefined;
     if (isValidCode) {
@@ -55,6 +58,23 @@ function isPossibleStarter(starterSymbol) {
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-
+function toggleAcceptionStatus(inputLine, isValidCode, lengthOfColorCode) {
+  // finding 2 elements of the color line: accept and reject
+  let acceptMark = inputLine.querySelector('.js-accept');
+  let rejectMark = inputLine.querySelector('.js-reject');
+  
+  // if colorCode is empty - turn switcher off
+  // otherwise choose state based on the validation status
+  if (lengthOfColorCode === 0) {
+    acceptMark.classList.add('unactive');
+    rejectMark.classList.add('unactive');
+  } else if (isValidCode) {
+    acceptMark.classList.remove('unactive');
+    rejectMark.classList.add('unactive');
+  } else {
+    acceptMark.classList.add('unactive');
+    rejectMark.classList.remove('unactive');
+  }
+}
 
 /////////////////////////////////////////////////////////////////////////////////////
