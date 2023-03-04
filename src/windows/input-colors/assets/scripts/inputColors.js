@@ -1,5 +1,3 @@
-const { validateInput } = require('validateInput.js');
-
 const MIN_AMOUNT_OF_COLORS = 2;
 let combinationLength = MIN_AMOUNT_OF_COLORS;
 
@@ -29,16 +27,20 @@ let secondLineObject = {
 
     console.log(firstLineObject);
     console.log(secondLineObject);
-  
-  let validation = false;
 
 firstLineObject.input.addEventListener('input', () => {
-  validation = validateInput(firstLineObject.input.value);
-  console.log(validation);
+  let inputString = firstLineObject.input.value;
+
+  if (isValidInput(inputString)) {
+    let colorCode = extractColorCodeFromInput(inputString);
+    
+  }
+  
 });
 
+/////////////////////////////////////////////////////////////////////////////////////
 
-function validateInput(input) {
+function isValidInput(input) {
   let lowerInputArray = String(input).toLowerCase().split('');
   let length = lowerInputArray.length;
 
@@ -93,6 +95,12 @@ function isValidColorCodeLength(length) {
   return length === LENGTH_OF_COLOR_CODE ? true : false;
 }
 
-module.export = {
-  validateInput: validateInput
+/////////////////////////////////////////////////////////////////////////////////////
+
+function extractColorCodeFromInput(input) {
+  const LENGTH_OF_COLOR_CODE = 6
+
+  return input.length > LENGTH_OF_COLOR_CODE ? input.slice(1) : input;
 }
+
+/////////////////////////////////////////////////////////////////////////////////////
