@@ -34,6 +34,9 @@ arrayOfInputLines.forEach((inputLine) => {
       colorCode = inputArray.join('');
     }
 
+    // change color code of js-example
+    setColorExample(inputLine, colorCode);
+
     console.log(`hashtaged = ${isHashtaged}, isValidCode = ${isValidCode}, colorCode = ${colorCode}`);
   })
 })
@@ -93,6 +96,24 @@ function toggleHashtag(inputLine, isHashtaged, lengthOfColorCode) {
     hashtagMark.classList.add('unactive');
   } else {
     hashtagMark.classList.remove('unactive');
+  }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// default value of the color's example
+const TRANSPARENT = "transparent";
+
+function setColorExample(inputLine, colorCode) {
+  // fincdong js-example element of color line
+  let exampleMark = inputLine.querySelector('.js-example');
+
+  // if colorCode is unefined - set transparent value
+  // otherwise - set color's value
+  if (colorCode === undefined) {
+    console.log('trying to set transparent');
+    exampleMark.style.backgroundColor = TRANSPARENT;
+  } else {
+    exampleMark.style.backgroundColor = `#${colorCode}`;
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////

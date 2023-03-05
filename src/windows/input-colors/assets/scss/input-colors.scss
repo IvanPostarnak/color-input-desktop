@@ -93,7 +93,8 @@
     }
 
     &--example {
-      background-color: violet;
+      background-color: transparent;
+      border: 1px solid black;
     }
 
     &--accept {
