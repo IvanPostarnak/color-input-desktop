@@ -6,7 +6,7 @@ let combinationLength = MIN_AMOUNT_OF_COLORS;
 let arrayOfInputLines = Array.from(document.querySelectorAll('.js-input-line'));
 
 // for each line's input HTML-tag add eventListener to read and validate Color Code
-arrayOfInputLines.forEach((inputLine) => {
+arrayOfInputLines.forEach((inputLine, index, array) => {
   inputLine.querySelector('.js-input').addEventListener('input', () => {
     // transform string of 7 characters into array of lowerCased symbols
     let inputArray = String(inputLine.querySelector('.js-input').value).trim().toLowerCase().split('');

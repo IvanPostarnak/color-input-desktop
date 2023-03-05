@@ -1,3 +1,5 @@
+$color-line-height: 3rem;
+
 .input-colors {
   width: 100%;
   height: 100vh;
@@ -71,14 +73,27 @@
     justify-content: space-between;
     align-items: center;
 
+    height: $color-line-height;
+    position: relative;
+
     margin-bottom: 20px;
 
     background-color: aquamarine;
   }
 
+  &__color-line-disabler {
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(black, 0.2);
+
+    position: absolute;
+    z-index: 10;
+  }
+
   &__color-line-item {
-    width: 30px;
-    height: 30px;
+    width: $color-line-height;
+    height: $color-line-height;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -124,5 +139,11 @@
 
 .unactive {
   opacity: 0.4;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
   pointer-events: none;
 }
