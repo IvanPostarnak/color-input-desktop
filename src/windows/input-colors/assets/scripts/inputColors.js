@@ -110,12 +110,6 @@ arrayOfInputLines.forEach((inputLine, index, array) => {
       combination.removeColorAt(inputElement.getAttribute('name'));
     }
 
-    // anable or disable lines based on the combination
-    setDisableForColorLine(arrayOfInputLines);
-
-    // console.log(`FormValidationStatus.minAnable: ${FormValidationStatus.getMinAnable()}`);
-    // console.log(`FormValidationStatus.anableColorLines: ${FormValidationStatus.getAnableColorLines()}`);
-
     console.log(`combination = ${JSON.stringify(combination)}`);
 
     // change color code of js-example
@@ -201,40 +195,3 @@ function setColorExample(inputLine, colorCode) {
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-// class of static constants to control the form
-class FormValidationStatus {
-  static minAnable = MIN_AMOUNT_OF_COLORS;
-  static maxAnable = MAX_AMOUNT_OF_COLORS;
-  static anableColorLines = MIN_AMOUNT_OF_COLORS;
-
-  static targetIndex = MAX_AMOUNT_OF_COLORS;
-
-  static getMinAnable() {
-    return this.minAnable;
-  }
-
-  static setAnableColorLines(value) {
-    this.anableColorLines = value;
-  }
-
-  static getAnableColorLines() {
-    return this.anableColorLines;
-  }
-}
-
-// adapt disabling statuses based on the combination status
-function setDisableForColorLine(arrayOfInputLines) {
-  // calculate target line to open to or to close to
-  target = FormValidationStatus.getValidColorCodes();
-
-  if (target < FormValidationStatus.getMinAnable()) {
-    // get back if targeted line index smaller than minAble amount
-    return;
-  } else {
-    if (target === arrayOfInputLines.length) return;
-    arrayOfInputLines[target].querySelector('.js-disabler').classList.add('hidden');
-    FormValidationStatus.setAnableColorLines(target + 1);
-  }
-
-  console.log(`target = ${target}`);
-}
