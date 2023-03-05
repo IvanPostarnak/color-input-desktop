@@ -2,12 +2,7 @@ const MIN_AMOUNT_OF_COLORS = 2;
 const MAX_AMOUNT_OF_COLORS = 6;
 
 class ColorCombination {
-  color1 = undefined;
-  color2 = undefined;
-  color3 = undefined;
-  color4 = undefined;
-  color5 = undefined;
-  color6 = undefined;
+  colors = [];
 
   static minLength = MIN_AMOUNT_OF_COLORS;
   static maxLength = MAX_AMOUNT_OF_COLORS;
@@ -23,33 +18,22 @@ class ColorCombination {
 
   author = undefined;
 
-  constructor(col1, col2, col3, col4, col5, col6, quality, author) {
-    this.color1 = col1;
-    this.color2 = col2;
-    this.color3 = col3;
-    this.color4 = col4;
-    this.color5 = col5;
-    this.color6 = col6;
-
-    this.quality = quality;
-    this.author = author;
+  constructor() {
+    
   };
 
-  setColorAt(position, value) {
-    let temp = this[position];
-    if (temp === undefined) {
-      this.length++;
-    }
-    this[position] = value;
+  setColorAt(index, value) {
+    this.colors[index] = value;
+    this.length++;
   }
 
-  removeColorAt(position) {
-    if (this[position] === undefined) {
-      return
-    } else {
-      this[position] = undefined;
-      this.length--;
+  removeColorAt(index) {
+    if (this.colors[index] === undefined) {
+      return;
     }
+      
+    this.colors[index] = undefined;
+    this.length--;
   }
 
   getLength() {
@@ -62,6 +46,13 @@ class ColorCombination {
 
   get maxLength() {
     return this.maxLength;
+  }
+
+  contains(colorCodeArray) {
+    let colorString = colorCodeArray.join('');
+    return this.colors.some((color) => {
+      return color === colorString;
+    })
   }
 }
 
@@ -96,7 +87,9 @@ arrayOfInputLines.forEach((inputLine, index, array) => {
     }
 
     // checking the code part of inputArray on validation and...
-    let isValidCode = isValidColorCode(inputArray) && isValidColorCodeLength(inputArray.length);
+    let isValidCode = isValidColorCode(inputArray) 
+                      && isValidColorCodeLength(inputArray.length)
+                      && combination.contains(inputArray) === false;
 
     // ...change acception status of input line based on the isValidCode value + input.length
     toggleAcceptionStatus(inputLine, isValidCode, inputArray.length);
@@ -105,9 +98,9 @@ arrayOfInputLines.forEach((inputLine, index, array) => {
     let colorCode = undefined;
     if (isValidCode) {
       colorCode = inputArray.join('');
-      combination.setColorAt(inputElement.getAttribute('name'), colorCode);
+      combination.setColorAt(inputElement.getAttribute('id'), colorCode);
     } else {
-      combination.removeColorAt(inputElement.getAttribute('name'));
+      combination.removeColorAt(inputElement.getAttribute('id'));
     }
 
     console.log(`combination = ${JSON.stringify(combination)}`);
