@@ -7,20 +7,30 @@ class ColorCombination {
   static minLength = MIN_AMOUNT_OF_COLORS;
   static maxLength = MAX_AMOUNT_OF_COLORS;
   length = 0;
-  isEmpty = true;
-  isFull = false;
 
-  quality = 0;
+  quality = 100.00;
   approvedStatus = false;
 
-  date = undefined;
-  history = undefined;
+  date = "";
+  history = "";
 
-  author = undefined;
+  author = "";
 
   constructor() {
     
   };
+
+  isEmpty() {
+    return this.length < 1 ? true : false;
+  }
+
+  isFull() {
+    return this.length === this.getMaxLength() ? true : false;
+  }
+
+  isReadyToSave() {
+    return this.length >= ColorCombination.getMinLength() ? true : false;
+  }
 
   setColorAt(index, value) {
     this.colors[index] = value;
@@ -40,11 +50,11 @@ class ColorCombination {
     return this.length;
   }
 
-  get minLength() {
+  static getMinLength() {
     return this.minLength;
   }
 
-  get maxLength() {
+  static getMaxLength() {
     return this.maxLength;
   }
 
@@ -64,10 +74,19 @@ let arrayOfInputLines = Array.from(document.querySelectorAll('.js-input-line'));
 
 // creating new object of the ColorCombination
 let combination = new ColorCombination();
-console.log(`combination = ${JSON.stringify(combination)}`);
+
+// find the InputCombination form on the document
+let inputForm = document.querySelector('.js-input-form');
+
+// add eventlistener for inputForm
+inputForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  console.log(`isReady: ${combination.isReadyToSave()}`);
+})
 
 // for each line's input HTML-tag add eventListener to read and validate Color Code
-arrayOfInputLines.forEach((inputLine, index, array) => {
+arrayOfInputLines.forEach((inputLine) => {
   // finding input html-element of the input-color-line
   let inputElement = inputLine.querySelector('.js-input');
 
