@@ -1,15 +1,72 @@
 const MIN_AMOUNT_OF_COLORS = 2;
 const MAX_AMOUNT_OF_COLORS = 6;
-let combinationLength = MIN_AMOUNT_OF_COLORS;
 
+class ColorCombination {
+  color1 = undefined;
+  color2 = undefined;
+  color3 = undefined;
+  color4 = undefined;
+  color5 = undefined;
+  color6 = undefined;
+
+  static minLength = 2;
+  static maxLength = 6;
+  length = 0;
+  isEmpty = true;
+  isFull = false;
+  quality = 0;
+  approvedStatus = false;
+  date = undefined;
+  author = undefined;
+
+  constructor(col1, col2, col3, col4, col5, col6, quality, author) {
+    this.color1 = col1;
+    this.color2 = col2;
+    this.color3 = col3;
+    this.color4 = col4;
+    this.color5 = col5;
+    this.color6 = col6;
+
+    this.quality = quality;
+    this.author = author;
+  };
+
+  setColorAt(position, value) {
+    let temp = this[position];
+    if (temp === undefined) {
+      this.length++;
+    }
+    this[position] = `#${value}`;
+  }
+
+  removeColorAt(position) {
+    if (this[position] === undefined) {
+      return
+    } else {
+      this[position] = undefined;
+      this.length--;
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////MAIN//////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 // find all the Input Lines of the form and transform it into array
 let arrayOfInputLines = Array.from(document.querySelectorAll('.js-input-line'));
 
+// creating new object of the ColorCombination
+let combination = new ColorCombination();
+console.log(`combination = ${JSON.stringify(combination)}`);
+
 // for each line's input HTML-tag add eventListener to read and validate Color Code
 arrayOfInputLines.forEach((inputLine, index, array) => {
-  inputLine.querySelector('.js-input').addEventListener('input', () => {
+  // finding input html-element of the input-color-line
+  let inputElement = inputLine.querySelector('.js-input');
+
+  inputElement.addEventListener('input', () => {
     // transform string of 7 characters into array of lowerCased symbols
-    let inputArray = String(inputLine.querySelector('.js-input').value).trim().toLowerCase().split('');
+    let inputArray = String(inputElement.value).trim().toLowerCase().split('');
 
     // checking the first element if it is possible starter and ...
     let isHashtaged = isPossibleStarter(inputArray[0]);
@@ -32,7 +89,12 @@ arrayOfInputLines.forEach((inputLine, index, array) => {
     let colorCode = undefined;
     if (isValidCode) {
       colorCode = inputArray.join('');
+      combination.setColorAt(inputElement.getAttribute('name'), colorCode);
+    } else {
+      combination.removeColorAt(inputElement.getAttribute('name'));
     }
+
+    console.log(`combination = ${JSON.stringify(combination)}`);
 
     // change color code of js-example
     setColorExample(inputLine, colorCode);
@@ -40,7 +102,7 @@ arrayOfInputLines.forEach((inputLine, index, array) => {
     console.log(`hashtaged = ${isHashtaged}, isValidCode = ${isValidCode}, colorCode = ${colorCode}`);
   })
 })
-
+/////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // line of valid symbold of hexadecimal system
 const VALID_COLOR_SYMBOLS = "0123456789abcdef";
@@ -110,7 +172,6 @@ function setColorExample(inputLine, colorCode) {
   // if colorCode is unefined - set transparent value
   // otherwise - set color's value
   if (colorCode === undefined) {
-    console.log('trying to set transparent');
     exampleMark.style.backgroundColor = TRANSPARENT;
   } else {
     exampleMark.style.backgroundColor = `#${colorCode}`;
