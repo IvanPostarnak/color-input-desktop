@@ -9,14 +9,18 @@ class ColorCombination {
   color5 = undefined;
   color6 = undefined;
 
-  static minLength = 2;
-  static maxLength = 6;
+  static minLength = MIN_AMOUNT_OF_COLORS;
+  static maxLength = MAX_AMOUNT_OF_COLORS;
   length = 0;
   isEmpty = true;
   isFull = false;
+
   quality = 0;
   approvedStatus = false;
+
   date = undefined;
+  history = undefined;
+
   author = undefined;
 
   constructor(col1, col2, col3, col4, col5, col6, quality, author) {
@@ -36,7 +40,7 @@ class ColorCombination {
     if (temp === undefined) {
       this.length++;
     }
-    this[position] = `#${value}`;
+    this[position] = value;
   }
 
   removeColorAt(position) {
@@ -46,6 +50,18 @@ class ColorCombination {
       this[position] = undefined;
       this.length--;
     }
+  }
+
+  getLength() {
+    return this.length;
+  }
+
+  get minLength() {
+    return this.minLength;
+  }
+
+  get maxLength() {
+    return this.maxLength;
   }
 }
 
@@ -94,12 +110,18 @@ arrayOfInputLines.forEach((inputLine, index, array) => {
       combination.removeColorAt(inputElement.getAttribute('name'));
     }
 
+    // anable or disable lines based on the combination
+    setDisableForColorLine(arrayOfInputLines);
+
+    // console.log(`FormValidationStatus.minAnable: ${FormValidationStatus.getMinAnable()}`);
+    // console.log(`FormValidationStatus.anableColorLines: ${FormValidationStatus.getAnableColorLines()}`);
+
     console.log(`combination = ${JSON.stringify(combination)}`);
 
     // change color code of js-example
     setColorExample(inputLine, colorCode);
 
-    console.log(`hashtaged = ${isHashtaged}, isValidCode = ${isValidCode}, colorCode = ${colorCode}`);
+    // console.log(`hashtaged = ${isHashtaged}, isValidCode = ${isValidCode}, colorCode = ${colorCode}`);
   })
 })
 /////////////////////////////////////////////////////////////////////////////////////
@@ -179,3 +201,40 @@ function setColorExample(inputLine, colorCode) {
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
+// class of static constants to control the form
+class FormValidationStatus {
+  static minAnable = MIN_AMOUNT_OF_COLORS;
+  static maxAnable = MAX_AMOUNT_OF_COLORS;
+  static anableColorLines = MIN_AMOUNT_OF_COLORS;
+
+  static targetIndex = MAX_AMOUNT_OF_COLORS;
+
+  static getMinAnable() {
+    return this.minAnable;
+  }
+
+  static setAnableColorLines(value) {
+    this.anableColorLines = value;
+  }
+
+  static getAnableColorLines() {
+    return this.anableColorLines;
+  }
+}
+
+// adapt disabling statuses based on the combination status
+function setDisableForColorLine(arrayOfInputLines) {
+  // calculate target line to open to or to close to
+  target = FormValidationStatus.getValidColorCodes();
+
+  if (target < FormValidationStatus.getMinAnable()) {
+    // get back if targeted line index smaller than minAble amount
+    return;
+  } else {
+    if (target === arrayOfInputLines.length) return;
+    arrayOfInputLines[target].querySelector('.js-disabler').classList.add('hidden');
+    FormValidationStatus.setAnableColorLines(target + 1);
+  }
+
+  console.log(`target = ${target}`);
+}
