@@ -1,6 +1,7 @@
 const MIN_AMOUNT_OF_COLORS = 2;
 const MAX_AMOUNT_OF_COLORS = 6;
-
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 class ColorCombination {
   colors = [];
 
@@ -65,7 +66,15 @@ class ColorCombination {
     })
   }
 }
-
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// object to save all the color combinations
+const savingData = {
+  combinations: [],
+  length: 0,
+  author: "",
+  date: ""
+};
 /////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////MAIN//////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -82,7 +91,23 @@ let inputForm = document.querySelector('.js-input-form');
 inputForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  console.log(`isReady: ${combination.isReadyToSave()}`);
+  if (combination.isReadyToSave()) {
+    // saving combination into new object
+    let saveCombination = JSON.parse(JSON.stringify(combination));
+
+    // renew combination valiable
+    combination = new ColorCombination();
+
+    // push combination into savingData
+    savingData.combinations.push(saveCombination);
+    savingData.length = savingData.combinations.length;
+
+    console.log(`combination = ${JSON.stringify(combination)}`);
+    console.log(`saveCombination = ${JSON.stringify(saveCombination)}`);
+    console.log(`savingData = ${JSON.stringify(savingData)}`);
+  } else {
+    alert("Combination of colors needs at least 2 colors...");
+  }
 })
 
 // for each line's input HTML-tag add eventListener to read and validate Color Code
