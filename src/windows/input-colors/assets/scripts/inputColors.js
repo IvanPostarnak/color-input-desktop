@@ -300,11 +300,14 @@ console.log(`issuePortForm : ${issueReportForm}`);
   issueReportForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  // set issue valiable
-  let issue = new Issue();
+  // standartization of input text
+  let convertedName = convertToStandard(issueReportForm.querySelector('.js-issue-report-form-name').value);
+  let convertedDescription = convertToStandard(issueReportForm.querySelector('.js-issue-report-form-description').value);
 
-  issue.name = issueReportForm.querySelector('.js-issue-report-form-name').value;
-  issue.description = issueReportForm.querySelector('.js-issue-report-form-description').value;
+  // set issue variable
+  let issue = new Issue();
+  issue.name = convertedName;
+  issue.description = convertedDescription;
 
   // push issue into issuesHolder
   issuesHolder.issues.push(issue);
@@ -313,3 +316,27 @@ console.log(`issuePortForm : ${issueReportForm}`);
   console.log(`issue = ${JSON.stringify(issue)}`);
   console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
 })
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// template of universal function to convert input text into appropriate format
+function convertToStandard(text) {
+  let startedArrayOfSentences = text.trim().split('.');
+  // console.log(`startedArray: ${startedArrayOfSentences}`);
+
+  let loweredArrayOfSentences = startedArrayOfSentences.map((sentence) => {
+    return sentence.trim().toLowerCase();
+  })
+  // console.log(`loweredArray: ${loweredArrayOfSentences}`);
+
+  let capitalizedArrayOfSentences = loweredArrayOfSentences.map((sentence) => {
+    if (sentence === '') {
+      return;
+    };
+    return sentence[0].toUpperCase() + sentence.slice(1);
+  })
+  // console.log(`capitalArray: ${capitalizedArrayOfSentences}`);
+
+  return capitalizedArrayOfSentences.join('. ');
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
