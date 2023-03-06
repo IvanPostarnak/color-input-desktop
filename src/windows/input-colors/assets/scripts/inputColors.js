@@ -69,6 +69,15 @@ class ColorCombination {
   }
 }
 /////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////SESSION////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// finding 2 counters of session statistics
+const combinationsCounter = document.querySelector('.js-combinations-counter');
+const issuesCounter = document.querySelector('.js-issues-counter');
+
+// console.log(`combo counter : ${combinationsCounter}`);
+
+/////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // object to save all the color combinations
 const combinationsHolder = {
@@ -111,6 +120,9 @@ inputForm.addEventListener('submit', (event) => {
     // push combination into combinationsHolder
     combinationsHolder.combinations.push(saveCombination);
     combinationsHolder.length = combinationsHolder.combinations.length;
+
+    // renew counter of combinations
+    combinationsCounter.textContent = combinationsHolder.length;
 
     console.log(`combination = ${JSON.stringify(combination)}`);
     console.log(`saveCombination = ${JSON.stringify(saveCombination)}`);
@@ -312,6 +324,9 @@ console.log(`issuePortForm : ${issueReportForm}`);
   // push issue into issuesHolder
   issuesHolder.issues.push(issue);
   issuesHolder.length = issuesHolder.issues.length;
+
+  // renew counter of combinations
+  issuesCounter.textContent = issuesHolder.length;
 
   console.log(`issue = ${JSON.stringify(issue)}`);
   console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
