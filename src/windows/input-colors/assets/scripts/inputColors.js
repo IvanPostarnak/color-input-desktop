@@ -1,3 +1,5 @@
+const AUTHOR = "author";
+
 const MIN_AMOUNT_OF_COLORS = 2;
 const MAX_AMOUNT_OF_COLORS = 6;
 /////////////////////////////////////////////////////////////////////////////////////
@@ -15,7 +17,7 @@ class ColorCombination {
   date = "";
   history = "";
 
-  author = "";
+  author = AUTHOR;
 
   constructor() {
     
@@ -72,7 +74,15 @@ class ColorCombination {
 const combinationsHolder = {
   combinations: [],
   length: 0,
-  author: "",
+  author: AUTHOR,
+  date: ""
+};
+
+// object to save all the issues
+const issuesHolder = {
+  issues: [],
+  length: 0,
+  author: AUTHOR,
   date: ""
 };
 /////////////////////////////////////////////////////////////////////////////////////
@@ -235,11 +245,9 @@ function setColorExample(inputLine, colorCode) {
 /////////////////////////////////////////////////////////////////////////////////////
 // finding issue popup opener
 const issueOpener = document.querySelector('.js-issue');
-console.log(issueOpener);
 
 // finding popup window itself
 const issuePopupWindow = document.querySelector('.js-issue-popup-window');
-console.log(issuePopupWindow);
 
 // add eventListener to it to reveal form to report issue
 issueOpener.addEventListener('click', (event) => {
@@ -268,3 +276,40 @@ function hideIssuePopupWindow(issuePopupWindow) {
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
+class Issue {
+  name = "";
+  description = "";
+  attachments = [];
+
+  status = "created";
+  date = "";
+  history = "";
+  author = AUTHOR;
+
+  constructor() {
+    
+  };
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// finding issue-report-form
+const issueReportForm = document.querySelector('.js-issue-report-form');
+console.log(`issuePortForm : ${issueReportForm}`);
+
+// making issueReportForm to save reported issue on submit
+  issueReportForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // set issue valiable
+  let issue = new Issue();
+
+  issue.name = issueReportForm.querySelector('.js-issue-report-form-name').value;
+  issue.description = issueReportForm.querySelector('.js-issue-report-form-description').value;
+
+  // push issue into issuesHolder
+  issuesHolder.issues.push(issue);
+  issuesHolder.length = issuesHolder.issues.length;
+
+  console.log(`issue = ${JSON.stringify(issue)}`);
+  console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
+})

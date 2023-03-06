@@ -313,12 +313,16 @@
                   name="name"
                   id=""
                   placeholder="What is the name of the issue?"
-                  class="issue-popup__input">
+                  required
+                  class="issue-popup__input
+                         js-issue-report-form-name">
             <textarea name="description"
                       id=""
                       placeholder="Please, describe the issue widely here"
-                      class="issue-popup__textarea">
-            </textarea>
+                      required
+                      maxlength="500"
+                      class="issue-popup__textarea
+                             js-issue-report-form-description"></textarea>
             <button type="submit"
                     class="issue-popup__button">
                     Submit
