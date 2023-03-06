@@ -238,31 +238,33 @@ const issueOpener = document.querySelector('.js-issue');
 console.log(issueOpener);
 
 // finding popup window itself
-const issuePopup = document.querySelector('.js-issue-report-popup');
+const issuePopupWindow = document.querySelector('.js-issue-popup-window');
+console.log(issuePopupWindow);
 
 // add eventListener to it to reveal form to report issue
 issueOpener.addEventListener('click', (event) => {
   event.stopPropagation();
-  revealIssuePopup(issuePopup);
+  revealIssuePopupWindow(issuePopupWindow);
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // popup revealer
-function revealIssuePopup(issuePopup) {
-  issuePopup.classList.remove('hidden');
+function revealIssuePopupWindow(issuePopupWindow) {
+  issuePopupWindow.classList.remove('hidden');
 
   document.addEventListener('click', (event) => {
-    if (event.target != issuePopup) {
-      hideIssuePopup(issuePopup);
+    // const closeArea = issuePopupWindow.querySelector('.js-issue-popup-background');
+    if (event.target === issuePopupWindow) {
+      hideIssuePopupWindow(issuePopupWindow);
     }
   });
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // popup hider
-function hideIssuePopup(issuePopup) {
-  issuePopup.classList.add('hidden');
+function hideIssuePopupWindow(issuePopupWindow) {
+  issuePopupWindow.classList.add('hidden');
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////

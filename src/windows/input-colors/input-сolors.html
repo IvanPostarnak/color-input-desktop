@@ -293,23 +293,41 @@
           Report an issue!
         </p>
       </div>
-
-      <article class="issue-report
-                      hidden 
-                      js-issue-report-popup">
-        <div class="issue-report__inner">
-          <div class="issue-report__form-holder">
-            <form action="#" 
-                  class="issue-report__form js-issue-report-form">
-                              
-            </form>
-          </div>
-        </div>
-      </article>
-
+      
     </section>
 
   </main>
+
+
+  <!-- issue-popup -->
+  <div class="issue-popup__window js-issue-popup-window hidden">
+    <!-- <div class="issue-popup__background js-issue-popup-background"></div> -->
+    <article class="issue-popup__popup 
+                    js-issue-popup">
+      <div class="issue-report__inner">
+        <div class="issue-report__form-holder">
+          <form action="#" 
+                class="issue-report__form
+                       js-issue-report-form">
+            <input type="text"
+                  name="name"
+                  id=""
+                  placeholder="What is the name of the issue?"
+                  class="issue-popup__input">
+            <textarea name="description"
+                      id=""
+                      placeholder="Please, describe the issue widely here"
+                      class="issue-popup__textarea">
+            </textarea>
+            <button type="submit"
+                    class="issue-popup__button">
+                    Submit
+            </button>              
+          </form>
+        </div>
+      </div>
+    </article>
+  </div>
 
   <script src="./assets/scripts/inputColors.js"></script>
 </body>
