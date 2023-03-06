@@ -94,7 +94,17 @@ issuesOpener.addEventListener('click', (event) => {
   event.stopPropagation();
   revealPopupWindow(sessionPopupWindow);
 });
-
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function revealCounterlIfNotEmpty(counterElement) {
+  console.log(`counterElement.textContent ${counterElement.textContent}`);
+  console.log(`typeof ${typeof counterElement.textContent}`);
+  if (counterElement.textContent === "0") {
+    counterElement.classList.add('hidden');
+  } else {
+    counterElement.classList.remove('hidden');
+  }
+}
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // object to save all the color combinations
@@ -141,6 +151,7 @@ inputForm.addEventListener('submit', (event) => {
 
     // renew counter of combinations
     combinationsCounter.textContent = combinationsHolder.length;
+    revealCounterlIfNotEmpty(combinationsCounter);
 
     console.log(`combination = ${JSON.stringify(combination)}`);
     console.log(`saveCombination = ${JSON.stringify(saveCombination)}`);
@@ -344,6 +355,7 @@ console.log(`issuePortForm : ${issueReportForm}`);
 
   // renew counter of combinations
   issuesCounter.textContent = issuesHolder.length;
+  revealCounterlIfNotEmpty(issuesCounter);
 
   console.log(`issue = ${JSON.stringify(issue)}`);
   console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
