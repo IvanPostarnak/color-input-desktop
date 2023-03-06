@@ -299,24 +299,35 @@
   </main>
 
   <!-- session buttons (combinations and issues) -->
-  <div class="session-buttons">
+  <div class="session-buttons js-session-controller">
     <div class="session-buttons__button-holder">
-      <button type="button">combination's</button>
+      <button type="button"
+              class="session-buttons__button
+                     session-buttons__button--combinations
+                     js-combinations-button">
+                     combinations
+      </button>
       <div class="session-buttons__counter
                   
                   js-combinations-counter">0</div>
     </div>
     <div class="session-buttons__button-holder">
-      <button type="button">issues</button>
+      <button type="button"
+              class="session-buttons__button
+                     session-buttons__button--issues
+                     js-issues-button">
+                     issues
+      </button>
       <div class="session-buttons__counter
                   
                   js-issues-counter">0</div>
     </div>
   </div>
 
-  <!-- issue-popup -->
-  <div class="issue-popup__window js-issue-popup-window hidden">
-    <!-- <div class="issue-popup__background js-issue-popup-background"></div> -->
+  <!-- issue-window -->
+  <div class="issue-popup__window
+              hidden
+              js-issue-popup-window ">
     <article class="issue-popup__popup 
                     js-issue-popup">
       <div class="issue-report__inner">
@@ -348,7 +359,15 @@
     </article>
   </div>
 
-  <!-- session-popup (combinations and issues)-->
+  <!-- session-window (combinations and issues)-->
+  <div class="session-buttons__window
+              hidden
+              js-session-popup-window">
+    <article class="session-buttons__popup
+                    js-session-popup">
+
+    </article>
+  </div>
 
 
   <script src="./assets/scripts/inputColors.js"></script>

@@ -71,11 +71,29 @@ class ColorCombination {
 /////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////SESSION////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-// finding 2 counters of session statistics
-const combinationsCounter = document.querySelector('.js-combinations-counter');
-const issuesCounter = document.querySelector('.js-issues-counter');
+// finding session controller
+const sessionController = document.querySelector('.js-session-controller');
 
-// console.log(`combo counter : ${combinationsCounter}`);
+// finding 2 counters of session statistics
+const combinationsCounter = sessionController.querySelector('.js-combinations-counter');
+const issuesCounter = sessionController.querySelector('.js-issues-counter');
+
+// finding 2 session buttons of session statistics
+const combinationsOpener = sessionController.querySelector('.js-combinations-button');
+const issuesOpener = sessionController.querySelector('.js-issues-button');
+
+// find session-window
+const sessionPopupWindow = document.querySelector('.js-session-popup-window');
+
+combinationsOpener.addEventListener('click', (event) => {
+  event.stopPropagation();
+  revealPopupWindow(sessionPopupWindow);
+});
+
+issuesOpener.addEventListener('click', (event) => {
+  event.stopPropagation();
+  revealPopupWindow(sessionPopupWindow);
+});
 
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -264,27 +282,26 @@ const issuePopupWindow = document.querySelector('.js-issue-popup-window');
 // add eventListener to it to reveal form to report issue
 issueOpener.addEventListener('click', (event) => {
   event.stopPropagation();
-  revealIssuePopupWindow(issuePopupWindow);
+  revealPopupWindow(issuePopupWindow);
 });
 
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // popup revealer
-function revealIssuePopupWindow(issuePopupWindow) {
-  issuePopupWindow.classList.remove('hidden');
+function revealPopupWindow(popupWindow) {
+  popupWindow.classList.remove('hidden');
 
   document.addEventListener('click', (event) => {
-    // const closeArea = issuePopupWindow.querySelector('.js-issue-popup-background');
-    if (event.target === issuePopupWindow) {
-      hideIssuePopupWindow(issuePopupWindow);
+    if (event.target === popupWindow) {
+      hidePopupWindow(popupWindow);
     }
   });
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // popup hider
-function hideIssuePopupWindow(issuePopupWindow) {
-  issuePopupWindow.classList.add('hidden');
+function hidePopupWindow(popupWindow) {
+  popupWindow.classList.add('hidden');
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
