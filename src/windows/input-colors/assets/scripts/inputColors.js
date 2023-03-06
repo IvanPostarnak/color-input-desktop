@@ -69,7 +69,7 @@ class ColorCombination {
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // object to save all the color combinations
-const savingData = {
+const combinationsHolder = {
   combinations: [],
   length: 0,
   author: "",
@@ -79,13 +79,13 @@ const savingData = {
 ///////////////////////////////MAIN//////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // find all the Input Lines of the form and transform it into array
-let arrayOfInputLines = Array.from(document.querySelectorAll('.js-input-line'));
+const arrayOfInputLines = Array.from(document.querySelectorAll('.js-input-line'));
 
 // creating new object of the ColorCombination
 let combination = new ColorCombination();
 
 // find the InputCombination form on the document
-let inputForm = document.querySelector('.js-input-form');
+const inputForm = document.querySelector('.js-input-form');
 
 // add eventlistener for inputForm
 inputForm.addEventListener('submit', (event) => {
@@ -98,13 +98,13 @@ inputForm.addEventListener('submit', (event) => {
     // renew combination valiable
     combination = new ColorCombination();
 
-    // push combination into savingData
-    savingData.combinations.push(saveCombination);
-    savingData.length = savingData.combinations.length;
+    // push combination into combinationsHolder
+    combinationsHolder.combinations.push(saveCombination);
+    combinationsHolder.length = combinationsHolder.combinations.length;
 
     console.log(`combination = ${JSON.stringify(combination)}`);
     console.log(`saveCombination = ${JSON.stringify(saveCombination)}`);
-    console.log(`savingData = ${JSON.stringify(savingData)}`);
+    console.log(`combinationsHolder = ${JSON.stringify(combinationsHolder)}`);
   } else {
     alert("Combination of colors needs at least 2 colors...");
   }
@@ -229,6 +229,40 @@ function setColorExample(inputLine, colorCode) {
   } else {
     exampleMark.style.backgroundColor = `#${colorCode}`;
   }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////ISSUE/////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// finding issue popup opener
+const issueOpener = document.querySelector('.js-issue');
+console.log(issueOpener);
+
+// finding popup window itself
+const issuePopup = document.querySelector('.js-issue-report-popup');
+
+// add eventListener to it to reveal form to report issue
+issueOpener.addEventListener('click', (event) => {
+  event.stopPropagation();
+  revealIssuePopup(issuePopup);
+});
+
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// popup revealer
+function revealIssuePopup(issuePopup) {
+  issuePopup.classList.remove('hidden');
+
+  document.addEventListener('click', (event) => {
+    if (event.target != issuePopup) {
+      hideIssuePopup(issuePopup);
+    }
+  });
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// popup hider
+function hideIssuePopup(issuePopup) {
+  issuePopup.classList.add('hidden');
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
