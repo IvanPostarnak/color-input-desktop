@@ -231,7 +231,6 @@ $session-controller-layer: 1000;
   &__button-holder {
     width: 100%;
     height: auto;
-    min-height: calc(25vw / 7);
 
     margin-top: 1rem;
 
@@ -281,5 +280,37 @@ $session-controller-layer: 1000;
 
     background-color: white;
     color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
+
+	&__popup-title {
+    width: 100%;
+    min-height: 100px;
+    background-color: aquamarine;
+    color: black;
+	}
+
+	&__popup-content{
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 150px);
+    overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    background-color: violet;
+	}
+
+	&__popup-button{
+    width: 60%;
+    height: auto;
+    margin-bottom: 20px;
+	}
 }
