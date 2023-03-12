@@ -119,12 +119,96 @@ issuesOpener.addEventListener('click', (event) => {
 // add event listener to send all the data onclick
 sessionWindowButton.addEventListener('click', (event) => {
   event.stopPropagation();
+  
+  // extract combinations into savings
+  extractColorCombinationsIntoSavings(savings, combinationsHolder);
+
+  // extract issues into savings
+  extractIssuesIntoSavings(savings, issuesHolder);
+
+  // set 'deep' date for every saving item
+  setDateOfSavings(savings);
+
+  // sending data indeed
   sendSavings();
+
+  console.log(`savings: ${JSON.stringify(savings)}`);
+
+  // clearing current states of objects
+  clearObjects(savings, issuesHolder, combinationsHolder);
+
+  // renew counter of combinations and issues
+  combinationsCounter.textContent = combinationsHolder.length;
+  revealCounterlIfNotEmpty(combinationsCounter);
+
+  issuesCounter.textContent = issuesHolder.length;
+  revealCounterlIfNotEmpty(issuesCounter);
+
+  // remove all color lines and issue notes form Session window
+  sessionWindowContentIssues.textContent = "";
+  sessionWindowContentCombinations.textContent = "";
 })
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function extractColorCombinationsIntoSavings(savings, combinationsHolder) {
+  if (combinationsHolder.combinations == undefined) return;
+  combinationsHolder.combinations.forEach((combination) => {
+    savings.combinations.push(JSON.parse(JSON.stringify(combination)));
+    savings.length += combinationsHolder.length;
+  })
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function extractIssuesIntoSavings(savings, issuesHolder) {
+  if (issuesHolder.issues == undefined) return;
+  issuesHolder.issues.forEach((issue) => {
+    savings.issues.push(JSON.parse(JSON.stringify(issue)));
+    savings.length += issuesHolder.length;
+  })
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function setDateOfSavings(savings) {
+  if (savings.length === 0) return;
+  let timeOfSendingSavings = new Date();
+  
+  if (savings.combinations != undefined) {
+    savings.combinations.forEach((combination) => {
+      combination.date = timeOfSendingSavings;
+    })
+  }
+
+  if (savings.issues != undefined) {
+    savings.issues.forEach((issue) => {
+      issue.date = timeOfSendingSavings;
+    })
+  }
+
+  savings.date = timeOfSendingSavings;
+}
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 function sendSavings() {
 
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function clearObjects(savings, issuesHolder, combinationsHolder) {
+  savings.combinations = [];
+  savings.issues = [];
+  savings.length = 0;
+  savings.author = AUTHOR;
+  savings.date = "";
+
+  combinationsHolder.combinations = [];
+  combinationsHolder.length = 0;
+  combinationsHolder.author = AUTHOR;
+  combinationsHolder.date = "";
+
+  issuesHolder.issues = [];
+  issuesHolder.length = 0;
+  issuesHolder.author = AUTHOR;
+  issuesHolder.date = "";
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
