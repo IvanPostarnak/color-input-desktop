@@ -101,6 +101,7 @@ combinationsOpener.addEventListener('click', (event) => {
   sessionWindowContentCombinations.classList.remove('hidden');
   sessionWindowContentIssues.classList.add('hidden');
 
+  // reveal window
   revealPopupWindow(sessionPopupWindow);
 });
 
@@ -111,6 +112,7 @@ issuesOpener.addEventListener('click', (event) => {
   sessionWindowContentCombinations.classList.add('hidden');
   sessionWindowContentIssues.classList.remove('hidden');
 
+  // reveal window
   revealPopupWindow(sessionPopupWindow);
 });
 
@@ -408,7 +410,6 @@ issueOpener.addEventListener('click', (event) => {
   event.stopPropagation();
   revealPopupWindow(issuePopupWindow);
 });
-
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // popup revealer
@@ -471,7 +472,85 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
 
   console.log(`issue = ${JSON.stringify(issue)}`);
   console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
+
+  // add colorLine of new combination into session window
+  // create one color line using JS
+  let issueNote = createIssueNote();
+
+  // fill color squares with colors of saved combination
+  fillIssueNote(issueNote, issue);
+
+  // set deleting button
+  setDeleterButton(issueNote, issuesHolder.length - 1);
+
+  // set script of deleting button
+  createDeletingScriptForDeletingButton(issueNote, issuesHolder);
+
+  // prepend created issue note
+  sessionWindowContentIssues.prepend(issueNote);
 })
+
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// function to create new issue note
+function createIssueNote() {
+  // creating issue note itself
+  const issueNote = document.createElement('article');
+  issueNote.classList.add('session-buttons__issue-note');
+
+  // creating h2 tag for name of issue
+  const issueNoteName = document.createElement('h2');
+  issueNoteName.classList.add('session-buttons__issue-note-name');
+  issueNote.append(issueNoteName);
+
+  // creating p tag for text of issue
+  const issueNoteDescription = document.createElement('p');
+  issueNoteDescription.classList.add('session-buttons__issue-note-name');
+  issueNote.append(issueNoteDescription);
+
+  // creating deleting button
+  const issueNoteDeleter = document.createElement('button');
+  issueNoteDeleter.classList.add('session-buttons__issue-note-deleter');
+  issueNote.append(issueNoteDeleter);
+
+  return issueNote;
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// function to fill IssueNote with actual data
+function fillIssueNote(issueNote, issue) {
+  issueNote.childNodes[0].textContent = issue.name;
+  issueNote.childNodes[1].textContent = issue.description;
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// just bound deleting button to 
+function setDeleterButton(issueNote, id) {
+  // bounding issueNote button to combination itself using id
+  issueNote.setAttribute('id', id);
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// set script of removing evelemt from DOM and issues holder
+function createDeletingScriptForDeletingButton(issueNote, issuesHolder) {
+  issueNote.lastChild.addEventListener('click', () => {
+    // get id of deleting combination
+    let deletengId = issueNote.getAttribute('id');
+    console.log(`deleting id: ${deletengId}`);
+
+    // delete this combination from saved issues
+    issuesHolder.issues.splice(deletengId, 1);
+    issuesHolder.length = issuesHolder.issues.length;
+    console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
+
+    // delete this issueNote from the DOM
+    issueNote.remove()
+
+    // renew counter of issues
+    issuesCounter.textContent = issuesHolder.length;
+    revealCounterlIfNotEmpty(issuesCounter);
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // template of universal function to convert input text into appropriate format

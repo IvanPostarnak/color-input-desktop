@@ -152,9 +152,9 @@ $session-controller-layer: 1000;
 }
 
 .hidden {
-  display: none;
-  visibility: hidden;
-  pointer-events: none;
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .input-colors {
@@ -346,4 +346,41 @@ $session-controller-layer: 1000;
 
     background-color: black;
 	}
+}
+
+.session-buttons {
+
+  &__issue-note {
+    width: 100%;
+    height: auto;
+
+    margin-bottom: 20px;
+
+    background-color: indigo;
+  }
+
+  &__issue-note-name {
+    font-size: 2rem;
+    line-height: 2rem;
+
+    color: white;
+
+    margin-bottom: 10px;
+  }
+
+  &__issue-note-description {
+    font-size: 1rem;
+    line-height: 1rem;
+
+    color: white;
+  }
+
+  &__issue-note-deleter {
+    width: 10px;
+    height: 10px;
+
+    margin-right: 20px;
+
+    background-color: yellow;
+  }
 }
