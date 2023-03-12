@@ -94,6 +94,21 @@ issuesOpener.addEventListener('click', (event) => {
   event.stopPropagation();
   revealPopupWindow(sessionPopupWindow);
 });
+
+
+// find session-popup-content section
+const sessionWindowContent = document.querySelector('.js-session-popup-content');
+
+// find session submit savings button
+const sessionWindowButton = document.querySelector('.js-session-popup-button');
+
+console.log(`Session content: ${sessionWindowContent}`);
+console.log(`Session button: ${sessionWindowButton}`);
+
+// create one color line using JS
+let nextLine = createColorCombinationLine(4);
+
+sessionWindowContent.prepend(nextLine);
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 function revealCounterlIfNotEmpty(counterElement) {
@@ -104,6 +119,21 @@ function revealCounterlIfNotEmpty(counterElement) {
   } else {
     counterElement.classList.remove('hidden');
   }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// function to create new color combination line for amount colors
+function createColorCombinationLine(amount) {
+  const colorLine = document.createElement('article');
+  colorLine.classList.add('session-buttons__color-combination');
+
+  for (let i = 0; i < amount; i++) {
+    let colorDiv = document.createElement('div');
+    colorDiv.classList.add('session-buttons__single-color');
+    colorLine.append(colorDiv);
+  }
+
+  return colorLine;
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -165,6 +195,8 @@ inputForm.addEventListener('submit', (event) => {
     console.log(`combination = ${JSON.stringify(combination)}`);
     console.log(`saveCombination = ${JSON.stringify(saveCombination)}`);
     console.log(`combinationsHolder = ${JSON.stringify(combinationsHolder)}`);
+
+    // add colorLine of new combination into session window
   } else {
     alert("Combination of colors needs at least 2 colors...");
   }
@@ -343,7 +375,6 @@ class Issue {
 /////////////////////////////////////////////////////////////////////////////////////
 // finding issue-report-form
 const issueReportForm = document.querySelector('.js-issue-report-form');
-console.log(`issuePortForm : ${issueReportForm}`);
 
 // making issueReportForm to save reported issue on submit
   issueReportForm.addEventListener('submit', (event) => {
