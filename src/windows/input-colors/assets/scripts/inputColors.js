@@ -116,6 +116,16 @@ issuesOpener.addEventListener('click', (event) => {
   revealPopupWindow(sessionPopupWindow);
 });
 
+// add event listener to send all the data onclick
+sessionWindowButton.addEventListener('click', (event) => {
+  event.stopPropagation();
+  sendSavings();
+})
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function sendSavings() {
+
+}
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 function revealCounterlIfNotEmpty(counterElement) {
@@ -167,7 +177,7 @@ function setDeleterButton(line, id) {
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // set script of removing evelemt from DOM and combinations holder
-function createDeletingScriptForDeletingButton(line, combinationsHolder) {
+function createDeletingScriptForDeletingCombinationButton(line, combinationsHolder) {
   line.childNodes[0].addEventListener('click', () => {
     // get id of deleting combination
     let deletengId = line.getAttribute('id');
@@ -258,7 +268,7 @@ inputForm.addEventListener('submit', (event) => {
     setDeleterButton(nextLine, combinationsHolder.length - 1);
 
     // set script of deleting button
-    createDeletingScriptForDeletingButton(nextLine, combinationsHolder);
+    createDeletingScriptForDeletingCombinationButton(nextLine, combinationsHolder);
 
     // prepend created line
     sessionWindowContentCombinations.prepend(nextLine);
@@ -484,7 +494,7 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
   setDeleterButton(issueNote, issuesHolder.length - 1);
 
   // set script of deleting button
-  createDeletingScriptForDeletingButton(issueNote, issuesHolder);
+  createDeletingScriptForDeletingIssueButton(issueNote, issuesHolder);
 
   // prepend created issue note
   sessionWindowContentIssues.prepend(issueNote);
@@ -524,15 +534,8 @@ function fillIssueNote(issueNote, issue) {
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-// just bound deleting button to 
-function setDeleterButton(issueNote, id) {
-  // bounding issueNote button to combination itself using id
-  issueNote.setAttribute('id', id);
-}
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
 // set script of removing evelemt from DOM and issues holder
-function createDeletingScriptForDeletingButton(issueNote, issuesHolder) {
+function createDeletingScriptForDeletingIssueButton(issueNote, issuesHolder) {
   issueNote.lastChild.addEventListener('click', () => {
     // get id of deleting combination
     let deletengId = issueNote.getAttribute('id');
