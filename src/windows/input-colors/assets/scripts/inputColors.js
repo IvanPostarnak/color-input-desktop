@@ -85,22 +85,35 @@ const issuesOpener = sessionController.querySelector('.js-issues-button');
 // find session-window
 const sessionPopupWindow = document.querySelector('.js-session-popup-window');
 
+// find session-popup-content combinations section
+const sessionWindowContentCombinations = document.querySelector('.js-session-popup-content-combinations');
+
+// find session-popup-content issues section
+const sessionWindowContentIssues = document.querySelector('.js-session-popup-content-issues');
+
+// find session submit savings button
+const sessionWindowButton = document.querySelector('.js-session-popup-button');
+
 combinationsOpener.addEventListener('click', (event) => {
   event.stopPropagation();
+
+  // toggle content of session window to combinations
+  sessionWindowContentCombinations.classList.remove('hidden');
+  sessionWindowContentIssues.classList.add('hidden');
+
   revealPopupWindow(sessionPopupWindow);
 });
 
 issuesOpener.addEventListener('click', (event) => {
   event.stopPropagation();
+  
+  // toggle content of session window to issues
+  sessionWindowContentCombinations.classList.add('hidden');
+  sessionWindowContentIssues.classList.remove('hidden');
+
   revealPopupWindow(sessionPopupWindow);
 });
 
-
-// find session-popup-content section
-const sessionWindowContent = document.querySelector('.js-session-popup-content');
-
-// find session submit savings button
-const sessionWindowButton = document.querySelector('.js-session-popup-button');
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 function revealCounterlIfNotEmpty(counterElement) {
@@ -246,7 +259,7 @@ inputForm.addEventListener('submit', (event) => {
     createDeletingScriptForDeletingButton(nextLine, combinationsHolder);
 
     // prepend created line
-    sessionWindowContent.prepend(nextLine);
+    sessionWindowContentCombinations.prepend(nextLine);
   } else {
     alert("Combination of colors needs at least 2 colors...");
   }
