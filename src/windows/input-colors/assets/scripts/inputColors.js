@@ -140,13 +140,14 @@ sessionWindowButton.addEventListener('click', (event) => {
   // renew counter of combinations and issues
   combinationsCounter.textContent = combinationsHolder.length;
   revealCounterlIfNotEmpty(combinationsCounter);
-
   issuesCounter.textContent = issuesHolder.length;
   revealCounterlIfNotEmpty(issuesCounter);
 
   // remove all color lines and issue notes form Session window
   sessionWindowContentIssues.textContent = "";
   sessionWindowContentCombinations.textContent = "";
+
+  hidePopupWindow(sessionPopupWindow);
 })
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -360,6 +361,10 @@ inputForm.addEventListener('submit', (event) => {
 
     // prepend created line
     sessionWindowContentCombinations.prepend(nextLine);
+
+    // reset form using hand-made function because we need to clear colors
+    resetForm(inputForm);
+
   } else {
     alert("Combination of colors needs at least 2 colors...");
   }
@@ -408,6 +413,18 @@ arrayOfInputLines.forEach((inputLine) => {
     // console.log(`hashtaged = ${isHashtaged}, isValidCode = ${isValidCode}, colorCode = ${colorCode}`);
   })
 })
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+function resetForm(inputForm) {
+  let arrayOfInputs = Array.from(inputForm.querySelectorAll('input'));
+  arrayOfInputs.forEach((input) => {
+    input.value = "";
+
+    // Create and dispatch a new input event
+    let event = new Event("input", { bubbles: true });
+    input.dispatchEvent(event);
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // function to check if color combination was not saved yet
@@ -581,6 +598,9 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
 
   // prepend created issue note
   sessionWindowContentIssues.prepend(issueNote);
+
+  issueReportForm.reset();
+  hidePopupWindow(issuePopupWindow);
 })
 
 /////////////////////////////////////////////////////////////////////////////////////
