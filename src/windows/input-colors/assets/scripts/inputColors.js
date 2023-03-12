@@ -324,7 +324,15 @@ inputForm.addEventListener('submit', (event) => {
 
   if (combination.isReadyToSave() && isUniqueCombination(combination, combinationsHolder)) {
     // saving combination into new object
-    let saveCombination = JSON.parse(JSON.stringify(combination));
+    let saveCombination = new ColorCombination();
+
+    // clear saveCombination from null-s
+    combination.colors.forEach((color) => {
+      if (color != null) {
+        saveCombination.colors.push(color);
+      }
+    })
+    saveCombination.length = saveCombination.colors.length;
 
     // renew combination valiable
     combination = new ColorCombination();
@@ -336,10 +344,6 @@ inputForm.addEventListener('submit', (event) => {
     // renew counter of combinations
     combinationsCounter.textContent = combinationsHolder.length;
     revealCounterlIfNotEmpty(combinationsCounter);
-
-    console.log(`combination = ${JSON.stringify(combination)}`);
-    console.log(`saveCombination = ${JSON.stringify(saveCombination)}`);
-    console.log(`combinationsHolder = ${JSON.stringify(combinationsHolder)}`);
 
     // add colorLine of new combination into session window
     // create one color line using JS
@@ -397,8 +401,6 @@ arrayOfInputLines.forEach((inputLine) => {
     } else {
       combination.removeColorAt(inputElement.getAttribute('id'));
     }
-
-    console.log(`combination = ${JSON.stringify(combination)}`);
 
     // change color code of js-example
     setColorExample(inputLine, colorCode);
@@ -563,9 +565,6 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
   // renew counter of combinations
   issuesCounter.textContent = issuesHolder.length;
   revealCounterlIfNotEmpty(issuesCounter);
-
-  console.log(`issue = ${JSON.stringify(issue)}`);
-  console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
 
   // add colorLine of new combination into session window
   // create one color line using JS
