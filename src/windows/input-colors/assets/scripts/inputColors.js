@@ -101,14 +101,6 @@ const sessionWindowContent = document.querySelector('.js-session-popup-content')
 
 // find session submit savings button
 const sessionWindowButton = document.querySelector('.js-session-popup-button');
-
-console.log(`Session content: ${sessionWindowContent}`);
-console.log(`Session button: ${sessionWindowButton}`);
-
-// create one color line using JS
-let nextLine = createColorCombinationLine(4);
-
-sessionWindowContent.prepend(nextLine);
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 function revealCounterlIfNotEmpty(counterElement) {
@@ -134,6 +126,16 @@ function createColorCombinationLine(amount) {
   }
 
   return colorLine;
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// function to fill created color line with colors
+function fillColorLine(line, combination) {
+  let i = 0;
+  combination.colors.forEach((color) => {
+    line.childNodes[i].style.backgroundColor = `#${color}`;
+    i++;
+  })
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -197,6 +199,14 @@ inputForm.addEventListener('submit', (event) => {
     console.log(`combinationsHolder = ${JSON.stringify(combinationsHolder)}`);
 
     // add colorLine of new combination into session window
+    // create one color line using JS
+    let nextLine = createColorCombinationLine(saveCombination.length);
+
+    // fill color squares with colors of saved combination
+    fillColorLine(nextLine, saveCombination);
+
+    // prepend created line
+    sessionWindowContent.prepend(nextLine);
   } else {
     alert("Combination of colors needs at least 2 colors...");
   }
