@@ -329,9 +329,21 @@ $session-controller-layer: 1000;
     background-color: indianred;
 	}
 
+  &__combination-deleter {
+    width: 10px;
+    height: 10px;
+
+    margin-right: 20px;
+
+    background-color: yellow;
+  }
+
 	&__single-color {
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
+
+    margin-left: 5px;
+
     background-color: black;
 	}
 }

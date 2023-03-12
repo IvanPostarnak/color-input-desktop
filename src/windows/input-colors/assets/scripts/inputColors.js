@@ -114,14 +114,21 @@ function revealCounterlIfNotEmpty(counterElement) {
 /////////////////////////////////////////////////////////////////////////////////////
 // function to create new color combination line for amount colors
 function createColorCombinationLine(amount) {
+  // creating color line itself
   const colorLine = document.createElement('article');
   colorLine.classList.add('session-buttons__color-combination');
 
+  // creating div's to hold colors
   for (let i = 0; i < amount; i++) {
     let colorDiv = document.createElement('div');
     colorDiv.classList.add('session-buttons__single-color');
     colorLine.append(colorDiv);
   }
+
+  // creating deleting button
+  const combinationDeleter = document.createElement('button');
+  combinationDeleter.classList.add('session-buttons__combination-deleter');
+  colorLine.prepend(combinationDeleter);
 
   return colorLine;
 }
@@ -129,10 +136,39 @@ function createColorCombinationLine(amount) {
 /////////////////////////////////////////////////////////////////////////////////////
 // function to fill created color line with colors
 function fillColorLine(line, combination) {
-  let i = 0;
+  let i = 1;
   combination.colors.forEach((color) => {
     line.childNodes[i].style.backgroundColor = `#${color}`;
     i++;
+  })
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// just bound deleting button to 
+function setDeleterButton(line, id) {
+  // bounding color line to combination itself using id
+  line.setAttribute('id', id);
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// set script of removing evelemt from DOM and combinations holder
+function createDeletingScriptForDeletingButton(line, combinationsHolder) {
+  line.childNodes[0].addEventListener('click', () => {
+    // get id of deleting combination
+    let deletengId = line.getAttribute('id');
+    console.log(`deleting id: ${deletengId}`);
+
+    // delete this combination from saved combinations
+    combinationsHolder.combinations.splice(deletengId, 1);
+    combinationsHolder.length = combinationsHolder.combinations.length;
+    console.log(`combinationsHolder = ${JSON.stringify(combinationsHolder)}`);
+
+    // delete this line from the DOM
+    line.remove()
+
+    // renew counter of combinations
+    combinationsCounter.textContent = combinationsHolder.length;
+    revealCounterlIfNotEmpty(combinationsCounter);
   })
 }
 /////////////////////////////////////////////////////////////////////////////////////
@@ -202,6 +238,12 @@ inputForm.addEventListener('submit', (event) => {
 
     // fill color squares with colors of saved combination
     fillColorLine(nextLine, saveCombination);
+
+    // set deleting button
+    setDeleterButton(nextLine, combinationsHolder.length - 1);
+
+    // set script of deleting button
+    createDeletingScriptForDeletingButton(nextLine, combinationsHolder);
 
     // prepend created line
     sessionWindowContent.prepend(nextLine);
