@@ -104,8 +104,6 @@ const sessionWindowButton = document.querySelector('.js-session-popup-button');
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 function revealCounterlIfNotEmpty(counterElement) {
-  console.log(`counterElement.textContent ${counterElement.textContent}`);
-  console.log(`typeof ${typeof counterElement.textContent}`);
   if (counterElement.textContent === "0") {
     counterElement.classList.add('hidden');
   } else {
@@ -179,7 +177,7 @@ const inputForm = document.querySelector('.js-input-form');
 inputForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  if (combination.isReadyToSave()) {
+  if (combination.isReadyToSave() && isUniqueCombination(combination, combinationsHolder)) {
     // saving combination into new object
     let saveCombination = JSON.parse(JSON.stringify(combination));
 
@@ -257,6 +255,15 @@ arrayOfInputLines.forEach((inputLine) => {
     // console.log(`hashtaged = ${isHashtaged}, isValidCode = ${isValidCode}, colorCode = ${colorCode}`);
   })
 })
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+// function to check if color combination was not saved yet
+function isUniqueCombination(combination, combinationsHolder) {
+  let combinationAsString = JSON.stringify(combination);
+  return combinationsHolder.combinations.every((combo) => {
+    return combinationAsString != JSON.stringify(combo);
+  })
+}
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // line of valid symbold of hexadecimal system
