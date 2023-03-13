@@ -6,14 +6,6 @@ const { screen } = require('electron');
 
 app.whenReady()
 .then(() => {
-  let patternsWindow = createPatternsWindow();
-  
-  patternsWindow.once('ready-to-show', () => {
-    patternsWindow.show();
-  });
-
-})
-.then(() => {
   let inputColorsWindow = createInputColorsWindow();
 
   inputColorsWindow.once('ready-to-show', () => {
@@ -54,12 +46,13 @@ function createPatternsWindow() {
 
 function createInputColorsWindow() {
   let inputColorsWindow = new BrowserWindow({
-    title: 'Input colors...',
+    title: 'Input colors',
     width: 600,
     height: 800,
     webPreferences: {
       preload: __dirname + "/../preloader/preloader.js"
-    }
+    },
+    resizable: false
   });
 
   inputColorsWindow.loadFile(__dirname + "/../windows/input-colors/input-colors.html")

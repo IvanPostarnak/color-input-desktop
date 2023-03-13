@@ -270,7 +270,8 @@ $session-controller-layer: 1000;
     grid-column: 2;
     grid-row: 1 / span 2;
     resize: none;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
@@ -382,7 +383,7 @@ $session-controller-layer: 1000;
     width: 100%;
     height: auto;
     max-height: calc(100vh - 150px);
-    overflow-y: scroll;
+    overflow-y: auto;
 
     display: flex;
     flex-direction: column;
