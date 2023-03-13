@@ -680,4 +680,26 @@ function convertToStandard(text) {
   return capitalizedArrayOfSentences.join('. ');
 }
 /////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////THEME SWITCHER/////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
+
+// find theme switcher
+const mainThemeSwithcer = document.querySelector('.js-main-theme-switcher');
+
+let chosenTheme = "dark";
+console.log(`chosen theme: ${chosenTheme}`);
+
+mainThemeSwithcer.addEventListener('click', (event) => {
+  event.stopPropagation();
+
+  mainThemeSwithcer.classList.toggle('main-theme-switcher__button--to-light')
+
+  if (chosenTheme == "light") {
+    chosenTheme = 'dark';
+    console.log(`chosen theme: ${chosenTheme}`);
+  } else {
+    chosenTheme = 'light';
+    console.log(`chosen theme: ${chosenTheme}`);
+  }
+})
+

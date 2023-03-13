@@ -315,7 +315,7 @@ $session-controller-layer: 1000;
   }
 
   &__button {
-    cursor: posinter;
+    cursor: pointer;
     line-height: 1em;
     border-radius: 0.5rem;
     width: 100%;
@@ -369,7 +369,7 @@ $session-controller-layer: 1000;
     justify-content: space-between;
     align-items: flex-start;
 
-    padding-left: 2rem;
+    padding-left: 1rem;
     border-bottom-right-radius: $line-height;
   }
 
@@ -382,7 +382,7 @@ $session-controller-layer: 1000;
     width: 100%;
     height: auto;
     max-height: calc(100vh - 150px);
-    overflow: scroll;
+    overflow-y: scroll;
 
     display: flex;
     flex-direction: column;
@@ -399,6 +399,7 @@ $session-controller-layer: 1000;
     border-radius: 0.5rem;
     line-height: 1em;
     margin-bottom: 20px;
+    cursor: pointer;
 	}
 }
 
@@ -469,5 +470,26 @@ $session-controller-layer: 1000;
     margin-right: 20px;
 
     background-color: yellow;
+  }
+}
+
+.main-theme-switcher {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  $input-color-disabler-layer: 2;
+
+  &__button {
+    display: block;
+    width: $line-height;
+    height: $line-height;
+    cursor: pointer;
+    border-radius: 0.5rem;
+
+    background-color: black;
+    
+    &--to-light {
+      background-color: white;
+    }
   }
 }
