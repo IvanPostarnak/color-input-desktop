@@ -286,7 +286,7 @@ $session-controller-layer: 1000;
 }
 
 .session-buttons {
-  width: $max-button-width;
+  width: calc($max-button-width + 2rem);
   height: auto;
 
   display: flex;
@@ -298,18 +298,20 @@ $session-controller-layer: 1000;
   left: 0;
   z-index: $session-controller-layer;
 
-  margin-top: 20px;
+  padding: 1rem;
 
   &__button-holder {
     width: 100%;
     height: auto;
 
-    margin-top: 1rem;
-
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__button-holder:last-child {
+    margin-top: 1rem;
   }
 
   &__button {
@@ -365,14 +367,15 @@ $session-controller-layer: 1000;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+
+    padding-left: 2rem;
+    border-bottom-right-radius: $line-height;
   }
 
 	&__popup-title {
     width: 100%;
     min-height: 100px;
-    background-color: aquamarine;
-    color: black;
 	}
 
 	&__popup-content{
