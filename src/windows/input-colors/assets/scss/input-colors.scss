@@ -1,6 +1,8 @@
 $line-height: 3.2rem;
 $form-max-width: 30rem;
 
+$max-button-width: 150px;
+
 $input-color-layer: 1;
 $input-color-disabler-layer: 2;
 $popup-window-layer: 100;
@@ -75,7 +77,14 @@ $session-controller-layer: 1000;
   }
 
   &__submit-form-button {
+    width: 100%;
+    max-width: $max-button-width;
+    height: $line-height;
+    line-height: 1em;
 
+    border-radius: 0.5rem;
+
+    cursor: pointer;
   }
 }
 
@@ -127,6 +136,7 @@ $session-controller-layer: 1000;
     &--example {
       background-color: transparent;
       border: 1px solid black;
+      border-radius: 0.5rem;
     }
 
     &--accept {
@@ -150,6 +160,7 @@ $session-controller-layer: 1000;
     width: 11rem;
     letter-spacing: 0.5px;
     font-size: 2.4rem;
+    border-radius: 0.5rem;
     
   }
 
@@ -250,6 +261,7 @@ $session-controller-layer: 1000;
   &__input {
     width: 100%;
     height: $line-height;
+    border-radius: 0.5rem;
     padding: 0.5rem;
   }
 
@@ -259,19 +271,22 @@ $session-controller-layer: 1000;
     grid-row: 1 / span 2;
     resize: none;
     overflow: scroll;
+    border-radius: 0.5rem;
     padding: 0.5rem;
   }
 
   &__button {
     width: 100%;
+    max-width: $max-button-width;
     height: $line-height;
     line-height: 1em;
+    border-radius: 0.5rem;
     cursor: pointer;
   }
 }
 
 .session-buttons {
-  width: 25vw;
+  width: $max-button-width;
   height: auto;
 
   display: flex;
@@ -295,6 +310,15 @@ $session-controller-layer: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__button {
+    cursor: posinter;
+    line-height: 1em;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: $max-button-width;
+    height: $line-height;
   }
 
   &__counter {
@@ -329,7 +353,7 @@ $session-controller-layer: 1000;
   }
 
   &__popup {
-    width: 25vw;
+    width: $form-max-width;
     height: 100vh;
 
     position: relative;
@@ -366,8 +390,11 @@ $session-controller-layer: 1000;
 	}
 
 	&__popup-button{
-    width: 60%;
-    height: auto;
+    width: 100%;
+    max-width: $max-button-width;
+    height: $line-height;
+    border-radius: 0.5rem;
+    line-height: 1em;
     margin-bottom: 20px;
 	}
 }
