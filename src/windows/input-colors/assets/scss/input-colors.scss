@@ -210,7 +210,7 @@ $session-controller-layer: 1000;
   
   &__inner {
     width: 70%;
-    height: calc($line-height * 2);
+    padding: 2rem;
   }
 
   &__form-holder {

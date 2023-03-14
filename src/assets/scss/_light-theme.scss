@@ -62,5 +62,20 @@
       border-top: 2px solid $color4;
       background-color: $color1;
     }
+
+    &__inner {
+      border: 2px solid $color4;
+      background-color: $color2;
+    }
+  }
+
+  .issue-report {  
+    &__input {
+      border: 2px solid $color1;
+    }
+  
+    &__textarea {
+      border: 2px solid $color1;
+    }
   }
 }

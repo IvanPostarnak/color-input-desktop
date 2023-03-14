@@ -16,4 +16,13 @@ button {
   border: none;
   cursor: pointer;
   background-color: transparent;
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+textarea {
+  outline: none;
 }
