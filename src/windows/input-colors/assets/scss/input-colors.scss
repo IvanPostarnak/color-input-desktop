@@ -154,27 +154,16 @@ $session-controller-layer: 1000;
 }
 
 .issue-report {
-  height: $line-height;
-  width: 100%;
-  max-width: calc($form-max-width / 4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
   position: absolute;
   bottom: 0;
   left: 50%;
   z-index: $input-color-disabler-layer;
   transform: translateX(-50%);
+  cursor: pointer;
 
   &__issue-icon {
     width: $line-height;
     height: $line-height;
-    background-color: hotpink;
-  }
-
-  &__issue-title {
-    color: white;
   }
 }
 
