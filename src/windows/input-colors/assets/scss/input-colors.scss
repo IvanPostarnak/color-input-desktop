@@ -44,14 +44,14 @@ $session-controller-layer: 1000;
 
     position: relative;
 
-    padding: 4rem;
+    padding: 4rem 3rem;
   }
 
   &__title-wrapper {
     width: 100%;
     height: auto;
 
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
 
   &__form-holder {
@@ -273,8 +273,7 @@ $session-controller-layer: 1000;
   left: 0;
   z-index: $session-controller-layer;
 
-  padding-top: 1rem;
-  padding-left: 2rem;
+  padding: 2rem;
 
   &__button-holder {
     width: 100%;
@@ -345,7 +344,7 @@ $session-controller-layer: 1000;
   }
 
   &__popup {
-    width: $form-max-width;
+    width: 50%;
     height: 100vh;
 
     position: relative;
@@ -357,6 +356,7 @@ $session-controller-layer: 1000;
     align-items: flex-start;
 
     padding-left: 2rem;
+    padding-right: 2rem;
   }
 
 	&__popup-title {
@@ -364,10 +364,11 @@ $session-controller-layer: 1000;
     min-height: 100px;
 	}
 
-	&__popup-content{
+	&__popup-content {
     width: 100%;
+    max-width: 100%;
     height: auto;
-    max-height: calc(100vh - 150px);
+    max-height: calc(100vh - 200px);
     overflow-y: auto;
 
     display: flex;
@@ -375,16 +376,15 @@ $session-controller-layer: 1000;
     justify-content: space-between;
     align-items: flex-start;
 
-    background-color: transparent;
+    padding: 2rem;
 	}
 
-	&__popup-button{
+	&__popup-button {
     width: 100%;
     max-width: 180px;
     height: $max-button-height;
-    
-    line-height: 1em;
-    margin-bottom: 20px;
+
+    margin-bottom: 2rem;
     cursor: pointer;
 
     background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-all-310-50.png);
@@ -403,27 +403,23 @@ $session-controller-layer: 1000;
     justify-content: flex-start;
     align-items: center;
 
-    margin-bottom: 10px;
-
     background-color: transparent;
 	}
 
+  &__color-combination:not(:first-child) {
+    margin-top: 1rem;
+  }
+
   &__combination-deleter {
-    width: 10px;
-    height: 10px;
-
-    margin-right: 20px;
-
-    background-color: yellow;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
   }
 
 	&__single-color {
-    width: 10px;
-    height: 10px;
-
-    margin-left: 5px;
-
-    background-color: transparent;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: 0.5rem;
 	}
 }
 

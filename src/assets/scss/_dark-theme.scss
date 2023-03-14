@@ -55,11 +55,25 @@
       border-right: 2px solid $color4;
       background-color: $color1;
     }
+
+    &__popup-content {
+      border: 2px solid $color4;
+      background-color: $color2;
+    }
+
+    &__combination-deleter {
+      background-color: $color4;
+    }
+  
+    &__single-color {
+      background-color: transparent;
+      border: 2px solid $color4;
+    }
   }
 
   .issue-popup {
     &__popup {
-      border-top: 2px solid $color4;
+      border: 2px solid $color4;
       background-color: $color1;
     }
 
