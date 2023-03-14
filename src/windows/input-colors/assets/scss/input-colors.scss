@@ -77,11 +77,9 @@ $session-controller-layer: 1000;
 
   &__submit-form-button {
     width: 100%;
-    max-width: $max-button-width;
+    max-width: 120px;
     height: $max-button-height;
     line-height: 1em;
-
-    
 
     background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-210-50.png);
     background-position: center;
@@ -280,7 +278,7 @@ $session-controller-layer: 1000;
 
   &__button {
     width: 100%;
-    max-width: $max-button-width;
+    max-width: 120px;;
     height: $max-button-height;
     line-height: 1em;
     
@@ -314,8 +312,8 @@ $session-controller-layer: 1000;
 
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   &__button-holder:last-child {
@@ -327,19 +325,20 @@ $session-controller-layer: 1000;
     line-height: 1em;
     
     width: 100%;
-    max-width: $max-button-width;
     height: $max-button-height;
 
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
 
     &--combinations {
       background-image: url(./src/windows/input-colors/assets/img/titles/color-input-combos-220-50.png);
+      max-width: 127px;
     }
 
     &--issues {
       background-image: url(./src/windows/input-colors/assets/img/titles/color-input-issues-200-50.png);
+      max-width: 112px;
     }
   }
   
@@ -414,7 +413,7 @@ $session-controller-layer: 1000;
 
 	&__popup-button{
     width: 100%;
-    max-width: 260px;
+    max-width: 180px;
     height: $max-button-height;
     
     line-height: 1em;
@@ -422,7 +421,7 @@ $session-controller-layer: 1000;
     cursor: pointer;
 
     background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-all-310-50.png);
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
 	}
