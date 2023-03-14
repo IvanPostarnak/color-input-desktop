@@ -2,6 +2,7 @@ $line-height: 3.2rem;
 $form-max-width: 30rem;
 
 $max-button-width: 150px;
+$max-button-height: 32px;
 
 $input-color-layer: 1;
 $input-color-disabler-layer: 2;
@@ -79,10 +80,15 @@ $session-controller-layer: 1000;
   &__submit-form-button {
     width: 100%;
     max-width: $max-button-width;
-    height: $line-height;
+    height: $max-button-height;
     line-height: 1em;
 
     border-radius: 0.5rem;
+
+    background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-210-50.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 
     cursor: pointer;
   }
@@ -279,10 +285,15 @@ $session-controller-layer: 1000;
   &__button {
     width: 100%;
     max-width: $max-button-width;
-    height: $line-height;
+    height: $max-button-height;
     line-height: 1em;
     border-radius: 0.5rem;
     cursor: pointer;
+
+    background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-210-50.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
@@ -321,8 +332,21 @@ $session-controller-layer: 1000;
     border-radius: 0.5rem;
     width: 100%;
     max-width: $max-button-width;
-    height: $line-height;
+    height: $max-button-height;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--combinations {
+      background-image: url(./src/windows/input-colors/assets/img/titles/color-input-combos-220-50.png);
+    }
+
+    &--issues {
+      background-image: url(./src/windows/input-colors/assets/img/titles/color-input-issues-200-50.png);
+    }
   }
+  
 
   &__counter {
     width: 2rem;
@@ -395,12 +419,17 @@ $session-controller-layer: 1000;
 
 	&__popup-button{
     width: 100%;
-    max-width: $max-button-width;
-    height: $line-height;
+    max-width: 260px;
+    height: $max-button-height;
     border-radius: 0.5rem;
     line-height: 1em;
     margin-bottom: 20px;
     cursor: pointer;
+
+    background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-all-310-50.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 	}
 }
 
