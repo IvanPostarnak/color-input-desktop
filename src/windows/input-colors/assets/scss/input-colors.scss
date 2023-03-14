@@ -34,8 +34,8 @@ $session-controller-layer: 1000;
   }
 
   &__content-section {
-    width: 70%;
-    height: 80vh;
+    width: auto;
+    height: auto;
 
     display: flex;
     flex-direction: column;
@@ -44,19 +44,14 @@ $session-controller-layer: 1000;
 
     position: relative;
 
-    padding: 2rem;
+    padding: 4rem;
   }
 
   &__title-wrapper {
     width: 100%;
     height: auto;
-    text-align: center;
-  }
 
-  &__title {
-    color: white;
-    font-size: 5rem;
-    line-height: 1em;
+    margin-bottom: 5rem;
   }
 
   &__form-holder {
@@ -158,15 +153,19 @@ $session-controller-layer: 1000;
   pointer-events: none !important;
 }
 
-.input-colors {
-  &__issue {
-    height: $line-height;
-    width: 100%;
-    max-width: calc($form-max-width / 4);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.issue-report {
+  height: $line-height;
+  width: 100%;
+  max-width: calc($form-max-width / 4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: $input-color-disabler-layer;
+  transform: translateX(-50%);
 
   &__issue-icon {
     width: $line-height;
@@ -274,7 +273,8 @@ $session-controller-layer: 1000;
   left: 0;
   z-index: $session-controller-layer;
 
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-left: 2rem;
 
   &__button-holder {
     width: 100%;
