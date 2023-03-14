@@ -81,6 +81,12 @@
     &__issue-note-deleter {
       background-color: $color1;
     }
+
+    &__counter {
+      background-color: $color3;
+      border: 2px solid $color1;
+      color: $color1;
+    }
   }
 
   .issue-popup {
