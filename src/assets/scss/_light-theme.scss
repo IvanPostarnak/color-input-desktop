@@ -62,12 +62,24 @@
     }
 
     &__combination-deleter {
-      background-color: $color4;
+      background-color: $color1;
     }
   
     &__single-color {
       background-color: transparent;
       border: 2px solid $color4;
+    }
+
+    &__issue-note-name {
+      color: $color4;
+    }
+  
+    &__issue-note-description {
+      color: $color4;
+    }
+
+    &__issue-note-deleter {
+      background-color: $color1;
     }
   }
 
