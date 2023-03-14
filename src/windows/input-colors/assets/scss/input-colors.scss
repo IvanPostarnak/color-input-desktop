@@ -1,5 +1,5 @@
 $line-height: 3.2rem;
-$form-max-width: 30rem;
+$form-max-width: 32rem;
 
 $max-button-width: 150px;
 $max-button-height: 32px;
@@ -19,8 +19,6 @@ $session-controller-layer: 1000;
   align-items: center;
 
   position: relative;
-
-  background-color: transparent;
 
   &__section-main {
     width: 100%;
@@ -46,7 +44,7 @@ $session-controller-layer: 1000;
 
     position: relative;
 
-    background-color: transparent;
+    padding: 2rem;
   }
 
   &__title-wrapper {
@@ -66,7 +64,7 @@ $session-controller-layer: 1000;
     max-width: $form-max-width;
     height: 50vh;
 
-    background-color: transparent;
+    padding: 2rem;
   }
 
   &__input-form {

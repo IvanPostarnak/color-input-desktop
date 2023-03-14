@@ -2,4 +2,19 @@
   $color1: #15788c;
   $color2: #00b9be;
   $color3: #ffeecc;
+  $color4: #ffffff;
+
+  .input-colors {
+    background-color: $color2;
+
+    &__content-section {
+      background-color: $color1;
+      border: 2px solid $color4;
+    }
+
+    &__form-holder {
+      background-color: $color2;
+      border: 2px solid $color4;
+    }
+  }
 }

@@ -1,5 +1,20 @@
 @media (prefers-color-scheme: light) {
-  $color1: #ff6973;
-  $color2: #ffb0a3;
+  $color1: #ffb0a3;
+  $color2: #ff6973;
   $color3: #ffeecc;
+  $color4: #ffffff;
+
+  .input-colors {
+    background-color: $color1;
+
+    &__content-section {
+      background-color: $color2;
+      border: 2px solid $color4;
+    }
+
+    &__form-holder {
+      background-color: $color1;
+      border: 2px solid $color4;
+    }
+  }
 }
