@@ -20,7 +20,7 @@ $session-controller-layer: 1000;
 
   position: relative;
 
-  background-color: red;
+  background-color: transparent;
 
   &__section-main {
     width: 100%;
@@ -32,7 +32,7 @@ $session-controller-layer: 1000;
 
     position: relative;
 
-    background-color: green;
+    background-color: transparent;
   }
 
   &__content-section {
@@ -46,7 +46,7 @@ $session-controller-layer: 1000;
 
     position: relative;
 
-    background-color: yellow;
+    background-color: transparent;
   }
 
   &__title-wrapper {
@@ -66,7 +66,7 @@ $session-controller-layer: 1000;
     max-width: $form-max-width;
     height: 50vh;
 
-    background-color: aqua;
+    background-color: transparent;
   }
 
   &__input-form {
@@ -83,7 +83,7 @@ $session-controller-layer: 1000;
     height: $max-button-height;
     line-height: 1em;
 
-    border-radius: 0.5rem;
+    
 
     background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-210-50.png);
     background-position: center;
@@ -106,7 +106,7 @@ $session-controller-layer: 1000;
 
     margin-bottom: 20px;
 
-    background-color: aquamarine;
+    background-color: transparent;
   }
 
   &__color-line-disabler {
@@ -142,7 +142,7 @@ $session-controller-layer: 1000;
     &--example {
       background-color: transparent;
       border: 1px solid black;
-      border-radius: 0.5rem;
+      
     }
 
     &--accept {
@@ -166,7 +166,7 @@ $session-controller-layer: 1000;
     width: 11rem;
     letter-spacing: 0.5px;
     font-size: 2.4rem;
-    border-radius: 0.5rem;
+    
     
   }
 
@@ -229,8 +229,6 @@ $session-controller-layer: 1000;
     height: auto;
     min-height: 30vh;
 
-    border-top-right-radius: $line-height;
-
     background-color: white;
 
     display: flex;
@@ -267,7 +265,7 @@ $session-controller-layer: 1000;
   &__input {
     width: 100%;
     height: $line-height;
-    border-radius: 0.5rem;
+    
     padding: 0.5rem;
   }
 
@@ -278,7 +276,7 @@ $session-controller-layer: 1000;
     resize: none;
     overflow-x: hidden;
     overflow-y: auto;
-    border-radius: 0.5rem;
+    
     padding: 0.5rem;
   }
 
@@ -287,7 +285,7 @@ $session-controller-layer: 1000;
     max-width: $max-button-width;
     height: $max-button-height;
     line-height: 1em;
-    border-radius: 0.5rem;
+    
     cursor: pointer;
 
     background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-210-50.png);
@@ -329,7 +327,7 @@ $session-controller-layer: 1000;
   &__button {
     cursor: pointer;
     line-height: 1em;
-    border-radius: 0.5rem;
+    
     width: 100%;
     max-width: $max-button-width;
     height: $max-button-height;
@@ -351,7 +349,7 @@ $session-controller-layer: 1000;
   &__counter {
     width: 2rem;
     height: 2rem;
-    border-radius: 50%;
+    border-radius: 25%;
 
     background-color: red;
     font-size: 2rem;
@@ -395,7 +393,6 @@ $session-controller-layer: 1000;
     align-items: flex-start;
 
     padding-left: 1rem;
-    border-bottom-right-radius: $line-height;
   }
 
 	&__popup-title {
@@ -414,14 +411,14 @@ $session-controller-layer: 1000;
     justify-content: space-between;
     align-items: flex-start;
 
-    background-color: violet;
+    background-color: transparent;
 	}
 
 	&__popup-button{
     width: 100%;
     max-width: 260px;
     height: $max-button-height;
-    border-radius: 0.5rem;
+    
     line-height: 1em;
     margin-bottom: 20px;
     cursor: pointer;
@@ -444,7 +441,7 @@ $session-controller-layer: 1000;
 
     margin-bottom: 10px;
 
-    background-color: indianred;
+    background-color: transparent;
 	}
 
   &__combination-deleter {
@@ -462,7 +459,7 @@ $session-controller-layer: 1000;
 
     margin-left: 5px;
 
-    background-color: black;
+    background-color: transparent;
 	}
 }
 
@@ -474,7 +471,7 @@ $session-controller-layer: 1000;
 
     margin-bottom: 20px;
 
-    background-color: indigo;
+    background-color: transparent;
   }
 
   &__issue-note-name {
@@ -514,7 +511,7 @@ $session-controller-layer: 1000;
     width: $line-height;
     height: $line-height;
     cursor: pointer;
-    border-radius: 0.5rem;
+    
 
     background-color: black;
     
