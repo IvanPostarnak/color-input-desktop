@@ -1,5 +1,5 @@
 $line-height: 3.2rem;
-$form-max-width: 32rem;
+$form-max-width: 34rem;
 
 $max-button-width: 150px;
 $max-button-height: 32px;
@@ -122,32 +122,6 @@ $session-controller-layer: 1000;
     background-position: center;
     background-repeat: no-repeat;
     transition-duration: 0.4s;
-
-    &--lock {
-      background-image: url(./src/windows/input-colors/assets/img/icons/lock.svg);
-    }
-
-    &--unlock {
-      background-image: url(./src/windows/input-colors/assets/img/icons/unlock.svg);
-    }
-
-    &--hashtag {
-      background-image: url(./src/windows/input-colors/assets/img/icons/hashtag.svg);
-    }
-
-    &--example {
-      background-color: transparent;
-      border: 1px solid black;
-      
-    }
-
-    &--accept {
-      background-image: url(./src/windows/input-colors/assets/img/icons/accept.svg);
-    }
-
-    &--reject {
-      background-image: url(./src/windows/input-colors/assets/img/icons/reject.svg);
-    }
   }
 
   &__input-wrapper {
@@ -162,8 +136,6 @@ $session-controller-layer: 1000;
     width: 11rem;
     letter-spacing: 0.5px;
     font-size: 2.4rem;
-    
-    
   }
 
   &__acception-status {
@@ -224,8 +196,6 @@ $session-controller-layer: 1000;
     width: 100%;
     height: auto;
     min-height: 30vh;
-
-    background-color: white;
 
     display: flex;
     justify-content: center;
@@ -381,15 +351,12 @@ $session-controller-layer: 1000;
     position: relative;
     z-index: $popup-layer;
 
-    background-color: white;
-    color: black;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 
-    padding-left: 1rem;
+    padding-left: 2rem;
   }
 
 	&__popup-title {

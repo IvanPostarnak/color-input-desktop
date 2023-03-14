@@ -16,5 +16,51 @@
       background-color: $color2;
       border: 2px solid $color4;
     }
+
+    &__input {
+      border: 2px solid $color1;
+    }
+
+    &__color-line-item {
+      &--example {
+        background-color: transparent;
+        border: 2px solid $color4;
+        margin-left: 0.5rem;
+      }
+
+      &--lock {
+        background-image: url(./src/windows/input-colors/assets/img/icons/lock.svg);
+      }
+  
+      &--unlock {
+        background-image: url(./src/windows/input-colors/assets/img/icons/unlock.svg);
+      }
+  
+      &--hashtag {
+        background-image: url(./src/windows/input-colors/assets/img/icons/hashtag.svg);
+      }
+  
+      &--accept {
+        background-image: url(./src/windows/input-colors/assets/img/icons/accept.svg);
+      }
+  
+      &--reject {
+        background-image: url(./src/windows/input-colors/assets/img/icons/reject.svg);
+      }
+    }
+  }
+
+  .session-buttons {
+    &__popup {
+      border-right: 2px solid $color4;
+      background-color: $color1;
+    }
+  }
+
+  .issue-popup {
+    &__popup {
+      border-top: 2px solid $color4;
+      background-color: $color1;
+    }
   }
 }
