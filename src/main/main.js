@@ -27,13 +27,14 @@ ipcMain.handle('light-mode:toggle', toggleMainTheme);
 
 function createInputColorsWindow() {
   let inputColorsWindow = new BrowserWindow({
-    title: 'Input colors',
+    title: 'Color Input',
     width: 600,
     height: 800,
     webPreferences: {
-      preload: __dirname + "/../preloader/preloader.js"
+      preload: path.join(__dirname, "..", "preloader", "preloader.js")
     },
-    resizable: false
+    resizable: false,
+    alwaysOnTop: true
   });
 
   inputColorsWindow.loadFile(__dirname + "/../windows/input-colors/input-colors.html")
