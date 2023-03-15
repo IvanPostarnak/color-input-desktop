@@ -27,7 +27,6 @@ ipcMain.handle('light-mode:toggle', toggleMainTheme);
 
 function createInputColorsWindow() {
   let inputColorsWindow = new BrowserWindow({
-    title: 'Color Input',
     width: 600,
     height: 800,
     webPreferences: {

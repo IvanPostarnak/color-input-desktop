@@ -1,5 +1,5 @@
 {
-  "name": "Input Colors",
+  "name": "color-input-desktop-window",
   "version": "1.0.0",
   "description": "Application to save beautiful combinations of colors",
   "main": "./src/main/main.js",
@@ -21,15 +21,14 @@
   },
   "homepage": "https://github.com/IvanPostarnak/color-input-desktop-window#readme",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
-    "electron": "^23.1.1",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
     "@electron-forge/cli": "^6.0.5",
     "@electron-forge/maker-deb": "^6.0.5",
     "@electron-forge/maker-rpm": "^6.0.5",
     "@electron-forge/maker-squirrel": "^6.0.5",
-    "@electron-forge/maker-zip": "^6.0.5"
-  },
-  "devDependencies": {
-    
+    "@electron-forge/maker-zip": "^6.0.5",
+    "electron": "^23.1.1"
   }
 }
