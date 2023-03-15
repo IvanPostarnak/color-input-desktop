@@ -151,6 +151,20 @@ sessionWindowButton.addEventListener('click', (event) => {
 })
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
+// function to reveal and hide 'empty' status of the content section
+function reactIfEmpty(contentSection) {
+  // finding empty holder on the page
+  const empty = contentSection.querySelector('.js-empty-holder');
+
+  // react on the situation
+  if (contentSection.children[0] == empty) {
+    empty.classList.remove('hidden');
+  } else {
+    empty.classList.add('hidden');
+  }
+}
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 function extractColorCombinationsIntoSavings(savings, combinationsHolder) {
   if (combinationsHolder.combinations == undefined) return;
   combinationsHolder.combinations.forEach((combination) => {
@@ -279,6 +293,9 @@ function createDeletingScriptForDeletingCombinationButton(line, combinationsHold
     // renew counter of combinations
     combinationsCounter.textContent = combinationsHolder.length;
     revealCounterlIfNotEmpty(combinationsCounter);
+
+    // react if line is no longer empty
+    reactIfEmpty(sessionWindowContentCombinations);
   })
 }
 /////////////////////////////////////////////////////////////////////////////////////
@@ -361,6 +378,9 @@ inputForm.addEventListener('submit', (event) => {
 
     // prepend created line
     sessionWindowContentCombinations.prepend(nextLine);
+
+    // react if line is no longer empty
+    reactIfEmpty(sessionWindowContentCombinations);
 
     // reset form using hand-made function because we need to clear colors
     resetForm(inputForm);
@@ -599,6 +619,9 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
   // prepend created issue note
   sessionWindowContentIssues.prepend(issueNote);
 
+  // react if line is no longer empty
+  reactIfEmpty(sessionWindowContentIssues);
+
   issueReportForm.reset();
   hidePopupWindow(issuePopupWindow);
 })
@@ -655,6 +678,9 @@ function createDeletingScriptForDeletingIssueButton(issueNote, issuesHolder) {
     // renew counter of issues
     issuesCounter.textContent = issuesHolder.length;
     revealCounterlIfNotEmpty(issuesCounter);
+
+    // react if line is no longer empty
+    reactIfEmpty(sessionWindowContentIssues);
   })
 }
 /////////////////////////////////////////////////////////////////////////////////////
