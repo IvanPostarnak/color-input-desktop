@@ -4,7 +4,19 @@
   $color3: #ffeecc;
   $color4: #ffffff;
 
+  $transparent: rgba(0, 0, 0, 0);
+
   .input-colors {
+    background: linear-gradient(45deg,
+                                $transparent 49.9%, 
+                                rgba($color3, 0.4) 49.9%, rgba($color3, 0.4) 60%, 
+                                $transparent 60%
+                                ),
+    linear-gradient(45deg,
+                    rgba($color3, 0.4) 10%,
+                    $transparent 10%
+                    );
+    background-size: 2em 2em;
     background-color: $color2;
 
     &__content-section {
