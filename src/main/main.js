@@ -4,8 +4,10 @@ const { BrowserWindow } = require('electron');
 const { ipcMain } = require('electron');
 const { screen } = require('electron');
 const { nativeTheme } = require('electron');
+const { Menu } = require('electron');
 
 nativeTheme.themeSource = 'dark';
+Menu.setApplicationMenu(false);
 
 app.whenReady()
 .then(() => {
@@ -33,7 +35,8 @@ function createInputColorsWindow() {
       preload: path.join(__dirname, "..", "preloader", "preloader.js")
     },
     resizable: false,
-    alwaysOnTop: true
+    alwaysOnTop: true,
+    
   });
 
   inputColorsWindow.loadFile(__dirname + "/../windows/input-colors/input-colors.html")
