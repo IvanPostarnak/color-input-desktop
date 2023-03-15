@@ -494,7 +494,8 @@ $half-opacity: 0.5;
     opacity: $half-opacity;
     
     &--to-light {
-      background-image: url(./src/windows/input-colors/assets/img/icons/sun-32-32.svg);
+      background-image: url(./src/windows/input-colors/assets/img/icons/flower-32-32.svg);
+      transform: rotate(90deg);
     }
   }
 
