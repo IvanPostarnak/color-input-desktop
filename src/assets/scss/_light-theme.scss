@@ -31,6 +31,7 @@
 
     &__input {
       border: 2px solid $color1;
+      color: $color1;
     }
 
     &__color-line-item {
@@ -116,10 +117,12 @@
   .issue-report {  
     &__input {
       border: 2px solid $color1;
+      color: $color1;
     }
   
     &__textarea {
       border: 2px solid $color1;
+      color: $color1;
     }
 
     &__issue-icon {
