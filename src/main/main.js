@@ -5,6 +5,10 @@ const { ipcMain } = require('electron');
 const { screen } = require('electron');
 const { nativeTheme } = require('electron');
 const { Menu } = require('electron');
+const { globalShortcut } = require('electron');
+const { Notification } = require('electron');
+
+const TITLE = 'Color Input';
 
 nativeTheme.themeSource = 'dark';
 Menu.setApplicationMenu(false);
@@ -29,6 +33,7 @@ ipcMain.handle('light-mode:toggle', toggleMainTheme);
 
 function createInputColorsWindow() {
   let inputColorsWindow = new BrowserWindow({
+    title: TITLE,
     width: 600,
     height: 800,
     webPreferences: {
