@@ -131,6 +131,8 @@ $session-controller-layer: 1000;
     width: 11rem;
     letter-spacing: 0.5px;
     font-size: 2.4rem;
+
+    margin-left: 0.5rem;
   }
 
   &__acception-status {
@@ -164,6 +166,9 @@ $session-controller-layer: 1000;
   &__issue-icon {
     width: $line-height;
     height: $line-height;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 }
 
@@ -402,6 +407,11 @@ $session-controller-layer: 1000;
     width: 2.5rem;
     height: 2.5rem;
     margin-right: 1rem;
+    background-color: transparent;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
   }
 
 	&__single-color {
@@ -438,8 +448,8 @@ $session-controller-layer: 1000;
   }
 
   &__issue-note-deleter {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
     align-self: flex-end;
   }
 }
@@ -455,12 +465,16 @@ $session-controller-layer: 1000;
     width: $line-height;
     height: $line-height;
     cursor: pointer;
-    
+  
+    background-color: transparent;
+    background-image: url(./src/windows/input-colors/assets/img/icons/crescent-32-32.svg);
 
-    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     
     &--to-light {
-      background-color: white;
+      background-image: url(./src/windows/input-colors/assets/img/icons/sun-32-32.svg);
     }
   }
 }

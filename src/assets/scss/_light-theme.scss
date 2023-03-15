@@ -24,28 +24,28 @@
     &__color-line-item {
       &--example {
         background-color: transparent;
-        border: 2px solid $color4;
+        border: 2px solid $color1;
         margin-left: 0.5rem;
       }
 
       &--lock {
-        background-image: url(./src/windows/input-colors/assets/img/icons/lock.svg);
+        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/lock-32-32.svg);
       }
   
       &--unlock {
-        background-image: url(./src/windows/input-colors/assets/img/icons/unlock.svg);
+        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/un-lock-32-32.svg);
       }
   
       &--hashtag {
-        background-image: url(./src/windows/input-colors/assets/img/icons/hashtag.svg);
+        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/hashtag-32-32.svg);
       }
   
       &--accept {
-        background-image: url(./src/windows/input-colors/assets/img/icons/accept.svg);
+        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/accept-32-32.svg);
       }
   
       &--reject {
-        background-image: url(./src/windows/input-colors/assets/img/icons/reject.svg);
+        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/reject-32-32.svg);
       }
     }
   }
@@ -62,7 +62,7 @@
     }
 
     &__combination-deleter {
-      background-color: $color1;
+      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/reject-25-25.svg);
     }
   
     &__single-color {
@@ -79,7 +79,7 @@
     }
 
     &__issue-note-deleter {
-      background-color: $color1;
+      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/reject-25-25.svg);
     }
 
     &__counter {
@@ -111,7 +111,7 @@
     }
 
     &__issue-icon {
-      background-color: $color1;
+      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/question-mark-32-32.svg);
     }
   }
 }
