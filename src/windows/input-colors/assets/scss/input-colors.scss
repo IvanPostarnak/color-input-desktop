@@ -10,6 +10,8 @@ $popup-window-layer: 100;
 $popup-layer: 101;
 $session-controller-layer: 1000;
 
+$half-opacity: 0.5;
+
 .input-colors {
   width: 100%;
   height: 100vh;
@@ -171,6 +173,12 @@ $session-controller-layer: 1000;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+
+    opacity: $half-opacity;
+  }
+
+  &__issue-icon:hover {
+    opacity: 1;
   }
 }
 
@@ -296,6 +304,8 @@ $session-controller-layer: 1000;
     background-repeat: no-repeat;
     background-size: contain;
 
+    opacity: $half-opacity;
+
     &--combinations {
       background-image: url(./src/windows/input-colors/assets/img/titles/color-input-combos-220-50.webp);
       max-width: 127px;
@@ -305,6 +315,10 @@ $session-controller-layer: 1000;
       background-image: url(./src/windows/input-colors/assets/img/titles/color-input-issues-200-50.webp);
       max-width: 112px;
     }
+  }
+
+  &__button:hover {
+    opacity: 1;
   }
 
   &__counter {
@@ -474,9 +488,15 @@ $session-controller-layer: 1000;
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+
+    opacity: $half-opacity;
     
     &--to-light {
       background-image: url(./src/windows/input-colors/assets/img/icons/sun-32-32.svg);
     }
+  }
+
+  &__button:hover {
+    opacity: 1;
   }
 }
