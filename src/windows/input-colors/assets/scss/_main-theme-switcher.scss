@@ -1,17 +1,22 @@
+$switcher-icon-width: 32px;
+$switcher-icon-height: 32px;
+$half-opacity: 0.5;
+
+$switch-to-light-icon: './src/windows/input-colors/assets/img/icons/flower-32-32.svg';
+$switch-to-dark-icon: './src/windows/input-colors/assets/img/icons/crescent-32-32.svg';
+
 .main-theme-switcher {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 20px;
+  right: 20px;
 
-  &__button {
+  &__icon {
     display: block;
-    width: $line-height;
-    height: $line-height;
+    width: $switcher-icon-width;
+    height: $switcher-icon-height;
     cursor: pointer;
   
-    background-color: transparent;
-    background-image: url(./src/windows/input-colors/assets/img/icons/crescent-32-32.svg);
-
+    background-image: url($switch-to-dark-icon);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -19,12 +24,12 @@
     opacity: $half-opacity;
     
     &--to-light {
-      background-image: url(./src/windows/input-colors/assets/img/icons/flower-32-32.svg);
+      background-image: url($switch-to-light-icon);
       transform: rotate(90deg);
     }
   }
 
-  &__button:hover {
+  &__icon:hover {
     opacity: 1;
   }
 }

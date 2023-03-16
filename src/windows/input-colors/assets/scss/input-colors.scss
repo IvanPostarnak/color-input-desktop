@@ -1,7 +1,9 @@
+@use './normalize';
 @use './input-colors-util';
 @use './input-line';
 @use './issue-report';
 @use './session-controll';
+@use './main-theme-switcher';
 
 $line-height: 3.2rem;
 $form-max-width: 34rem;

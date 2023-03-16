@@ -17,18 +17,13 @@
 }
 
 button {
-  font-family: 'Electrolize', sans-serif;
   border: none;
-  cursor: pointer;
   background-color: transparent;
-  outline: none;
+  cursor: pointer;
 }
 
-input {
-  font-family: 'Electrolize', sans-serif;
-  outline: none;
-}
-
+button,
+input,
 textarea {
   font-family: 'Electrolize', sans-serif;
   outline: none;
