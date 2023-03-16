@@ -63,7 +63,15 @@
     }
   }
 
-  .session-buttons {
+  .session-data-controller {
+    &__counter {
+      background-color: $color3;
+      border: 2px solid $color1;
+      color: $color1;
+    }
+  }
+
+  .session-data {
     &__popup {
       border-right: 2px solid $color4;
       background-color: $color1;
@@ -74,7 +82,9 @@
       background-color: $color2;
       color: $color1;
     }
+  }
 
+  .session-data-components {
     &__combination-deleter {
       background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/reject-25-25.svg);
     }
@@ -94,12 +104,6 @@
 
     &__issue-note-deleter {
       background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/reject-25-25.svg);
-    }
-
-    &__counter {
-      background-color: $color3;
-      border: 2px solid $color1;
-      color: $color1;
     }
   }
 

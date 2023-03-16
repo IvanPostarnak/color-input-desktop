@@ -1,72 +1,68 @@
-
-$line-height: 3.2rem;
-$form-max-width: 34rem;
-
+$color-combination-item-width: 25px;
+$color-combination-item-height: 25px;
+$issue-note-item-height: 25px;
 $max-button-width: 150px;
-$max-button-height: 32px;
+$button-height: 32px;
 
-$input-color-z-layer: 1;
 $popup-window-z-layer: 100;
 $popup-z-layer: $popup-window-z-layer + 1;
 $session-controller-z-layer: 1000;
 
 $half-opacity: 0.5;
 
+$combinations-data-opener-img: './src/windows/input-colors/assets/img/titles/color-input-combos-220-50.webp';
+$issues-data-opener-img: './src/windows/input-colors/assets/img/titles/color-input-issues-200-50.webp';
+$session-data-saver-img: './src/windows/input-colors/assets/img/titles/color-input-save-it-all-310-50.webp';
+$session-data-vertical-offset: 100px;
 
-.session-buttons {
-  width: calc($max-button-width + 2rem);
+
+// controler (absolute positioning)
+.session-data-controller {
+  min-width: calc($max-button-width + 2rem);
   height: auto;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
   position: fixed;
   top: 0;
   left: 0;
   z-index: $session-controller-z-layer;
+  padding: 20px;
 
-  padding: 2rem;
-
-  &__button-holder {
+  &__opener-holder {
     width: 100%;
     height: auto;
-
-    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
   }
 
-  &__button-holder:last-child {
-    margin-top: 1rem;
+  &__opener-holder:not(:last-child) {
+    margin-bottom: 10px;
   }
 
-  &__button {
-    cursor: pointer;
-    line-height: 1em;
-    
+  &__opener {
     width: 100%;
-    height: $max-button-height;
-
+    height: $button-height;
     background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
-
     opacity: $half-opacity;
+    cursor: pointer;
 
     &--combinations {
-      background-image: url(./src/windows/input-colors/assets/img/titles/color-input-combos-220-50.webp);
       max-width: 127px;
+      background-image: url($combinations-data-opener-img);
     }
 
     &--issues {
-      background-image: url(./src/windows/input-colors/assets/img/titles/color-input-issues-200-50.webp);
       max-width: 112px;
+      background-image: url($issues-data-opener-img);
     }
   }
 
-  &__button:hover {
+  &__opener:hover {
     opacity: 1;
   }
 
@@ -74,14 +70,11 @@ $half-opacity: 0.5;
     width: 2rem;
     max-width: 3rem;
     height: 2rem;
-    border-radius: 10%;
-
     font-size: 1.5rem;
-
+    border-radius: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: absolute;
     top: -1rem;
     left: -1rem;
@@ -89,110 +82,100 @@ $half-opacity: 0.5;
   }
 }
 
-.session-buttons {
+// session data window
+.session-data {
   &__window {
     width: 100%;
     height: 100vh;
-
     position: fixed;
     bottom: 0;
     left: 0;
-
     z-index: $popup-window-z-layer;
   }
 
   &__popup {
     width: 50%;
     height: 100vh;
-
-    position: relative;
-    z-index: $popup-z-layer;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-
-    padding-left: 2rem;
-    padding-right: 2rem;
+    position: relative;
+    z-index: $popup-z-layer;
+    padding: 0px 20px;
   }
 
 	&__popup-title {
     width: 100%;
-    min-height: 100px;
+    min-height: $session-data-vertical-offset;
+    background-color: transparent;
 	}
 
 	&__popup-content {
     width: 100%;
-    max-width: 100%;
     height: auto;
-    max-height: calc(100vh - 200px);
-    overflow-y: auto;
-
+    max-height: calc(100vh - $session-data-vertical-offset * 2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-
-    letter-spacing: 0.2rem;
-
-    padding: 2rem;
+    overflow-y: auto;
+    padding: 20px;
 	}
 
-	&__popup-button {
+	&__button {
     width: 100%;
     max-width: 180px;
-    height: $max-button-height;
-
-    margin-bottom: 2rem;
-    cursor: pointer;
-
-    background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-all-310-50.webp);
+    height: $button-height;
+    background-image: url($session-data-saver-img);
     background-position: left;
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
+    margin-bottom: 20px;
 	}
 }
 
-.session-buttons {
+// session items OF COLORS
+.session-data-components {
 	&__color-combination {
     width: 100%;
     height: auto;
-    
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
     background-color: transparent;
 	}
 
   &__color-combination:not(:first-child) {
-    margin-top: 1rem;
+    margin-top: 10px;
   }
 
   &__combination-deleter {
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-right: 1rem;
+    width: $color-combination-item-width;
+    height: $color-combination-item-height;
     background-color: transparent;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    margin-right: 10px;
   }
 
 	&__single-color {
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-left: 0.5rem;
+    width: $color-combination-item-width;
+    height: $color-combination-item-height;
+	}
+
+  &__single-color:not(:first-child) {
+    margin-left: 5px;
 	}
 }
 
-.session-buttons {
+// session items OF ISSUES
+.session-data-components {
   &__issue-note {
     width: 100%;
     height: auto;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -200,23 +183,33 @@ $half-opacity: 0.5;
   }
 
   &__issue-note:not(:first-child) {
-    margin-top: 1rem;
+    margin-top: 10px;
   }
 
   &__issue-note-name {
     font-size: 2rem;
-    line-height: 2rem;
-    margin-bottom: 1rem;
+    line-height: 1em;
+    margin-bottom: 10px;
   }
 
   &__issue-note-description {
     font-size: 1rem;
-    line-height: 1rem;
+    line-height: 1em;
   }
 
   &__issue-note-deleter {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: $issue-note-item-height;
+    height: $issue-note-item-height;
     align-self: flex-end;
+  }
+}
+
+.session-data-components {
+  &__empty-holder {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: 2px;
   }
 }

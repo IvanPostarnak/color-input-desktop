@@ -72,27 +72,27 @@ class ColorCombination {
 //////////////////////////SESSION////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // finding session controller
-const sessionController = document.querySelector('.js-session-controller');
+const sessionController = document.querySelector('.js-session-data-controller');
 
 // finding 2 counters of session statistics
-const combinationsCounter = sessionController.querySelector('.js-combinations-counter');
-const issuesCounter = sessionController.querySelector('.js-issues-counter');
+const combinationsCounter = sessionController.querySelector('.js-combinations-data-controller-counter');
+const issuesCounter = sessionController.querySelector('.js-issues-data-controller-counter');
 
 // finding 2 session buttons of session statistics
-const combinationsOpener = sessionController.querySelector('.js-combinations-button');
-const issuesOpener = sessionController.querySelector('.js-issues-button');
+const combinationsOpener = sessionController.querySelector('.js-combinations-data-controller-opener');
+const issuesOpener = sessionController.querySelector('.js-issues-data-controller-opener');
 
 // find session-window
-const sessionPopupWindow = document.querySelector('.js-session-popup-window');
+const sessionPopupWindow = document.querySelector('.js-session-data-window');
 
 // find session-popup-content combinations section
-const sessionWindowContentCombinations = document.querySelector('.js-session-popup-content-combinations');
+const sessionWindowContentCombinations = document.querySelector('.js-session-data-content-combinations');
 
 // find session-popup-content issues section
-const sessionWindowContentIssues = document.querySelector('.js-session-popup-content-issues');
+const sessionWindowContentIssues = document.querySelector('.js-session-data-content-issues');
 
 // find session submit savings button
-const sessionWindowButton = document.querySelector('.js-session-popup-button');
+const sessionWindowButton = document.querySelector('.js-session-data-button');
 
 combinationsOpener.addEventListener('click', (event) => {
   event.stopPropagation();
@@ -154,7 +154,7 @@ sessionWindowButton.addEventListener('click', (event) => {
 // function to reveal and hide 'empty' status of the content section
 function reactIfEmpty(contentSection) {
   // finding empty holder on the page
-  const empty = contentSection.querySelector('.js-empty-holder');
+  const empty = contentSection.querySelector('.js-session-data-empty-holder');
 
   // react on the situation
   if (contentSection.children[0] == empty) {
@@ -240,18 +240,18 @@ function revealCounterlIfNotEmpty(counterElement) {
 function createColorCombinationLine(amount) {
   // creating color line itself
   const colorLine = document.createElement('article');
-  colorLine.classList.add('session-buttons__color-combination');
+  colorLine.classList.add('session-data-components__color-combination');
 
   // creating div's to hold colors
   for (let i = 0; i < amount; i++) {
     let colorDiv = document.createElement('div');
-    colorDiv.classList.add('session-buttons__single-color');
+    colorDiv.classList.add('session-data-components__single-color');
     colorLine.append(colorDiv);
   }
 
   // creating deleting button
   const combinationDeleter = document.createElement('button');
-  combinationDeleter.classList.add('session-buttons__combination-deleter');
+  combinationDeleter.classList.add('session-data-components__combination-deleter');
   colorLine.prepend(combinationDeleter);
 
   return colorLine;
@@ -632,21 +632,21 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
 function createIssueNote() {
   // creating issue note itself
   const issueNote = document.createElement('article');
-  issueNote.classList.add('session-buttons__issue-note');
+  issueNote.classList.add('session-data-components__issue-note');
 
   // creating h2 tag for name of issue
   const issueNoteName = document.createElement('h2');
-  issueNoteName.classList.add('session-buttons__issue-note-name');
+  issueNoteName.classList.add('session-data-components__issue-note-name');
   issueNote.append(issueNoteName);
 
   // creating p tag for text of issue
   const issueNoteDescription = document.createElement('p');
-  issueNoteDescription.classList.add('session-buttons__issue-note-name');
+  issueNoteDescription.classList.add('session-data-components__issue-note-name');
   issueNote.append(issueNoteDescription);
 
   // creating deleting button
   const issueNoteDeleter = document.createElement('button');
-  issueNoteDeleter.classList.add('session-buttons__issue-note-deleter');
+  issueNoteDeleter.classList.add('session-data-components__issue-note-deleter');
   issueNote.append(issueNoteDeleter);
 
   return issueNote;

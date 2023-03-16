@@ -313,32 +313,6 @@
 
   </main>
 
-  <!-- session buttons (combinations and issues) -->
-  <div class="session-buttons js-session-controller">
-    <div class="session-buttons__button-holder">
-      <button type="button"
-              class="session-buttons__button
-                     session-buttons__button--combinations
-                     js-combinations-button">
-                     
-      </button>
-      <div class="session-buttons__counter
-                  hidden
-                  js-combinations-counter">0</div>
-    </div>
-    <div class="session-buttons__button-holder">
-      <button type="button"
-              class="session-buttons__button
-                     session-buttons__button--issues
-                     js-issues-button">
-                     
-      </button>
-      <div class="session-buttons__counter
-                  hidden
-                  js-issues-counter">0</div>
-    </div>
-  </div>
-
   <!-- main theme switcher -->
   <div class="main-theme-switcher">
     <buttom class="main-theme-switcher__icon
@@ -348,7 +322,7 @@
     </buttom>
   </div>
 
-  <!-- issue report icon -->
+  <!-- issue report opener -->
   <div class="issue-report-opener js-issue-popup-opener">
     <div class="issue-report-opener__icon"></div>
   </div>
@@ -391,26 +365,51 @@
     </article>
   </div>
 
-  <!-- session-window (combinations and issues)-->
-  <div class="session-buttons__window
+  <!-- session data controller (combinations and issues) -->
+  <div class="session-data-controller js-session-data-controller">
+    <div class="session-data-controller__opener-holder">
+      <button type="button"
+              class="session-data-controller__opener
+                     session-data-controller__opener--combinations
+                     js-combinations-data-controller-opener">
+                     
+      </button>
+      <div class="session-data-controller__counter
+                  hidden
+                  js-combinations-data-controller-counter">0</div>
+    </div>
+    <div class="session-data-controller__opener-holder">
+      <button type="button"
+              class="session-data-controller__opener
+                     session-data-controller__opener--issues
+                     js-issues-data-controller-opener">
+                     
+      </button>
+      <div class="session-data-controller__counter
+                  hidden
+                  js-issues-data-controller-counter">0</div>
+    </div>
+  </div>
+
+  <!-- session data popup (combinations and issues) -->
+  <div class="session-data__window
               hidden
-              js-session-popup-window">
-    <article class="session-buttons__popup
-                    js-session-popup">
-      <div class="session-buttons__popup-title"></div>
-      <div class="session-buttons__popup-content
+              js-session-data-window">
+    <article class="session-data__popup">
+      <div class="session-data__popup-title"></div>
+      <div class="session-data__popup-content
                   hidden
-                  js-session-popup-content-combinations">
-        <p class="empty-holder js-empty-holder">empty</p>
+                  js-session-data-content-combinations">
+        <p class=".session-data-components__empty-holder js-session-data-empty-holder">empty</p>
       </div>
-      <div class="session-buttons__popup-content
+      <div class="session-data__popup-content
                   hidden
-                  js-session-popup-content-issues">
-        <p class="empty-holder js-empty-holder">empty</p>
+                  js-session-data-content-issues">
+        <p class=".session-data-components__empty-holder js-session-data-empty-holder">empty</p>
       </div>
       <button type="submit"
-              class="session-buttons__popup-button
-                     js-session-popup-button">
+              class="session-data__button
+                     js-session-data-button">
 
       </button>
     </article>
