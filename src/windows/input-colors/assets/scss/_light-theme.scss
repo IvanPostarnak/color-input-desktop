@@ -4,21 +4,28 @@
   $color3: #ffeecc;
   $color4: #ffffff;
 
-  $transparent: rgba(0, 0, 0, 0);
+  $color-line-icon-unlock: './src/windows/input-colors/assets/img/icons/light-theme/un-lock-32-32.svg';
+  $color-line-icon-hashtag: './src/windows/input-colors/assets/img/icons/light-theme/hashtag-32-32.svg';
+  $color-line-icon-accept-circle: './src/windows/input-colors/assets/img/icons/accept-circle-32-32.svg';
+  $color-line-icon-reject-circle: './src/windows/input-colors/assets/img/icons/reject-circle-32-32.svg';
+  $session-data-icon-deleter: './src/windows/input-colors/assets/img/icons/light-theme/reject-25-25.svg';
+  $issue-opener-icon: './src/windows/input-colors/assets/img/icons/light-theme/question-mark-32-32.svg';
 
   .input-colors {
     background: linear-gradient(45deg,
-                                $transparent 49.9%, 
+                                transparent 49.9%, 
                                 rgba($color3, 0.4) 49.9%, rgba($color3, 0.4) 60%, 
-                                $transparent 60%
+                                transparent 60%
                                 ),
     linear-gradient(45deg,
                     rgba($color3, 0.4) 10%,
-                    $transparent 10%
+                    transparent 10%
                     );
     background-size: 2em 2em;
     background-color: $color2;
+  }
 
+  .input-colors {
     &__content-section {
       background-color: $color1;
       border: 2px solid $color4;
@@ -28,12 +35,9 @@
       background-color: $color2;
       border: 2px solid $color4;
     }
+  }
 
-    &__input {
-      border: 2px solid $color1;
-      color: $color1;
-    }
-
+  .input-colors {
     &__color-line-item {
       &--example {
         background-color: transparent;
@@ -41,25 +45,26 @@
         margin-left: 0.5rem;
       }
 
-      &--lock {
-        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/lock-32-32.svg);
-      }
-  
       &--unlock {
-        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/un-lock-32-32.svg);
+        background-image: url($color-line-icon-unlock);
       }
   
       &--hashtag {
-        background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/hashtag-32-32.svg);
+        background-image: url($color-line-icon-hashtag);
       }
   
       &--accept {
-        background-image: url(./src/windows/input-colors/assets/img/icons/accept-circle-32-32.svg);
+        background-image: url($color-line-icon-accept-circle);
       }
   
       &--reject {
-        background-image: url(./src/windows/input-colors/assets/img/icons/reject-circle-32-32.svg);
+        background-image: url($color-line-icon-reject-circle);
       }
+    }
+
+    &__input {
+      border: 2px solid $color1;
+      color: $color1;
     }
   }
 
@@ -86,7 +91,7 @@
 
   .session-data-components {
     &__combination-deleter {
-      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/reject-25-25.svg);
+      background-image: url($session-data-icon-deleter);
     }
   
     &__single-color {
@@ -103,13 +108,13 @@
     }
 
     &__issue-note-deleter {
-      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/reject-25-25.svg);
+      background-image: url($session-data-icon-deleter);
     }
   }
 
   .issue-report-opener {
     &__icon {
-      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/question-mark-32-32.svg);
+      background-image: url($issue-opener-icon);
     }
   }
 
