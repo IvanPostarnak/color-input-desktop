@@ -14,15 +14,13 @@ $switch-to-dark-icon: './src/windows/input-colors/assets/img/icons/crescent-32-3
   &__icon {
     display: block;
     width: $switcher-icon-width;
-    height: $switcher-icon-height;
-    cursor: pointer;
-  
+    height: $switcher-icon-height;  
     background-image: url($switch-to-dark-icon);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-
     opacity: $half-opacity;
+    cursor: pointer;
     
     &--to-light {
       background-image: url($switch-to-light-icon);

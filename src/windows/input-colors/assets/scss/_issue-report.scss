@@ -16,13 +16,11 @@ $issue-report-form-button-img: './src/windows/input-colors/assets/img/titles/col
 .issue-report-opener {
   width: auto;
   height: auto;
-
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: $input-color-z-layer + 1;
-  
   cursor: pointer;
 
   &__icon {
@@ -31,7 +29,6 @@ $issue-report-form-button-img: './src/windows/input-colors/assets/img/titles/col
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-
     opacity: $half-opacity;
   }
 
@@ -45,11 +42,9 @@ $issue-report-form-button-img: './src/windows/input-colors/assets/img/titles/col
   &__window {
     width: 100%;
     height: 100vh;
-
     position: fixed;
     bottom: 0;
     left: 0;
-
     z-index: $popup-window-z-layer;
   }
   
@@ -57,15 +52,12 @@ $issue-report-form-button-img: './src/windows/input-colors/assets/img/titles/col
     width: 100%;
     height: auto;
     min-height: 30vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: fixed;
     bottom: 0;
     z-index: $popup-z-layer;
-
     overflow: hidden;
   }
   
@@ -90,7 +82,6 @@ $issue-report-form-button-img: './src/windows/input-colors/assets/img/titles/col
   &__input {
     width: 100%;
     height: $input-color-line-height;
-    
     padding: 5px;
   }
 
@@ -98,22 +89,16 @@ $issue-report-form-button-img: './src/windows/input-colors/assets/img/titles/col
     width: 100%;
     grid-column: 2;
     grid-row: 1 / span 2;
-
+    padding: 5px;
     resize: none;
     overflow-x: hidden;
     overflow-y: auto;
-    
-    padding: 5px;
   }
 
   &__button {
     width: 100%;
     max-width: 120px;
     height: $max-button-height;
-    line-height: 1em;
-    
-    cursor: pointer;
-
     background-image: url($issue-report-form-button-img);
     background-position: center;
     background-repeat: no-repeat;
