@@ -1,32 +1,18 @@
-// ONE input color line of 'input color form'
-
 $input-color-line-height: 32px;
+
 $input-color-z-layer: 1;
 
 
 .input-colors {
   &__color-line-wrapper {
+    height: $input-color-line-height;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    height: $input-color-line-height;
     position: relative;
     z-index: $input-color-z-layer;
-
     margin-bottom: 20px;
-
-    background-color: transparent;
-  }
-
-  &__color-line-disabler {
-    width: 100%;
-    height: 100%;
-    
-    background-color: rgba(black, 0.2);
-
-    position: absolute;
-    z-index: $input-color-z-layer + 1;
   }
 
   &__color-line-item {
@@ -35,32 +21,28 @@ $input-color-z-layer: 1;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    transition-duration: 0.4s;
   }
 
   &__input-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    margin-right: 1rem;
+    margin-right: 10px;
   }
 
   &__input {
-    width: 11rem;
-    letter-spacing: 0.5px;
+    width: 110px;
+    height: $input-color-line-height;
     font-size: 2.4rem;
-
-    margin-left: 0.5rem;
+    letter-spacing: 0.5px;
+    margin-left: 5px;
   }
 
   &__acception-status {
-    width: 7rem;
-
+    width: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    margin-right: 1rem;
+    margin-right: 10px;
   }
 }
