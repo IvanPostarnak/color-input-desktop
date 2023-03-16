@@ -1,8 +1,8 @@
 @use './normalize';
-@use './input-colors-util';
+@use './util';
 @use './light-theme';
 @use './dark-theme';
-@use './input-color-form';
+@use './input-form';
 @use './issue-report';
 @use './session-controll';
 @use './main-theme-switcher';
