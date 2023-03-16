@@ -2,96 +2,51 @@
 @use './input-colors-util';
 @use './light-theme';
 @use './dark-theme';
-@use './input-color-line';
+@use './input-color-form';
 @use './issue-report';
 @use './session-controll';
 @use './main-theme-switcher';
-
-$line-height: 3.2rem;
-$form-max-width: 34rem;
-
-$max-button-width: 150px;
-$max-button-height: 32px;
-
-$input-color-z-layer: 1;
-$popup-window-z-layer: 100;
-$popup-z-layer: $popup-window-z-layer + 1;
-$session-controller-z-layer: 1000;
-
-$half-opacity: 0.5;
 
 
 .input-colors {
   width: 100%;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: relative;
 
   &__section-main {
     width: 100%;
     height: 100vh;
-    
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
-
     position: relative;
-
-    background-color: transparent;
   }
 
   &__content-section {
     width: auto;
     height: auto;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
     position: relative;
-
-    padding: 4rem 3rem;
+    padding: 40px 30px;
   }
 
   &__title-wrapper {
     width: 100%;
     height: auto;
-
-    margin-bottom: 4rem;
+    margin-bottom: 40px;
   }
 
   &__form-holder {
     width: 100%;
-    max-width: $form-max-width;
+    max-width: 340px;
     height: 50vh;
-
-    padding: 2rem;
-  }
-
-  &__input-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  &__submit-form-button {
-    width: 100%;
-    max-width: 120px;
-    height: $max-button-height;
-    line-height: 1em;
-
-    background-image: url(./src/windows/input-colors/assets/img/titles/color-input-save-it-210-50.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    cursor: pointer;
+    padding: 20px;
   }
 }

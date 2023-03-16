@@ -2,8 +2,18 @@ $input-color-line-height: 32px;
 
 $input-color-z-layer: 1;
 
+$input-form-submit-button-img: './src/windows/input-colors/assets/img/titles/color-input-save-it-210-50.webp';
+
 
 .input-colors {
+  &__input-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   &__color-line-wrapper {
     height: $input-color-line-height;
     background-color: transparent;
@@ -44,5 +54,16 @@ $input-color-z-layer: 1;
     justify-content: space-between;
     align-items: center;
     margin-right: 10px;
+  }
+
+  &__submit-form-button {
+    width: 100%;
+    max-width: 120px;
+    height: 32px;
+    background-image: url($input-form-submit-button-img);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
   }
 }
