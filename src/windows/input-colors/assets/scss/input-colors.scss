@@ -1,5 +1,7 @@
 @use './normalize';
 @use './input-colors-util';
+@use './light-theme';
+@use './dark-theme';
 @use './input-line';
 @use './issue-report';
 @use './session-controll';

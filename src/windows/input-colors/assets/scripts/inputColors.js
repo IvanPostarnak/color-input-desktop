@@ -533,10 +533,10 @@ function setColorExample(inputLine, colorCode) {
 ///////////////////////////////////////ISSUE/////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // finding issue popup opener
-const issueOpener = document.querySelector('.js-issue');
+const issueOpener = document.querySelector('.js-issue-popup-opener');
 
 // finding popup window itself
-const issuePopupWindow = document.querySelector('.js-issue-popup-window');
+const issuePopupWindow = document.querySelector('.js-issue-report-window');
 
 // add eventListener to it to reveal form to report issue
 issueOpener.addEventListener('click', (event) => {

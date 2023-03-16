@@ -348,21 +348,22 @@
     </buttom>
   </div>
 
-  <!-- issue -->
-  <div class="issue-report js-issue">
-    <div class="issue-report__issue-icon"></div>
+  <!-- issue report icon -->
+  <div class="issue-report-opener js-issue-popup-opener">
+    <div class="issue-report-opener__icon"></div>
   </div>
 
   <!-- issue-window -->
-  <div class="issue-popup__window
+  <div class="issue-report__window
               hidden
-              js-issue-popup-window ">
-    <article class="issue-popup__popup 
-                    js-issue-popup">
-      <div class="issue-popup__inner">
-        <div class="issue-popup__form-holder">
-          <form action="#" 
-                class="issue-report__form
+              js-issue-report-window ">
+    <article class="issue-report__popup 
+                    js-issue-report-popup">
+      <div class="issue-report__popup-inner">
+        <div class="issue-report__popup-form-holder">
+
+          <form action="#"
+                class="issue-report-form
                        js-issue-report-form">
             <input type="text"
                   name="name"
@@ -370,20 +371,21 @@
                   placeholder="Name fo issue"
                   autocomplete="off"
                   required
-                  class="issue-report__input
+                  class="issue-report-form__input
                          js-issue-report-form-name">
             <textarea name="description"
                       id=""
                       placeholder="Describe the issue widely here"
                       required
                       maxlength="500"
-                      class="issue-report__textarea
+                      class="issue-report-form__textarea
                              js-issue-report-form-description"></textarea>
             <button type="submit"
-                    class="issue-report__button">
+                    class="issue-report-form__button">
 
             </button>
           </form>
+
         </div>
       </div>
     </article>

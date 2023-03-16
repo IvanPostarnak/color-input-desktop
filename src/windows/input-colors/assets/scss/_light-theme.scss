@@ -103,19 +103,25 @@
     }
   }
 
-  .issue-popup {
+  .issue-report-opener {
+    &__icon {
+      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/question-mark-32-32.svg);
+    }
+  }
+
+  .issue-report {
     &__popup {
       border-top: 2px solid $color4;
       background-color: $color1;
     }
 
-    &__inner {
+    &__popup-inner {
       border: 2px solid $color4;
       background-color: $color2;
     }
   }
 
-  .issue-report {  
+  .issue-report-form {  
     &__input {
       border: 2px solid $color1;
       color: $color1;
@@ -124,10 +130,6 @@
     &__textarea {
       border: 2px solid $color1;
       color: $color1;
-    }
-
-    &__issue-icon {
-      background-image: url(./src/windows/input-colors/assets/img/icons/light-theme/question-mark-32-32.svg);
     }
   }
 }
