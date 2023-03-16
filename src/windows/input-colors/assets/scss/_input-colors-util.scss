@@ -1,0 +1,10 @@
+.unactive {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

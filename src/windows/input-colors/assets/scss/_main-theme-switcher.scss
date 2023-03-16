@@ -1,0 +1,30 @@
+.main-theme-switcher {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+
+  &__button {
+    display: block;
+    width: $line-height;
+    height: $line-height;
+    cursor: pointer;
+  
+    background-color: transparent;
+    background-image: url(./src/windows/input-colors/assets/img/icons/crescent-32-32.svg);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    opacity: $half-opacity;
+    
+    &--to-light {
+      background-image: url(./src/windows/input-colors/assets/img/icons/flower-32-32.svg);
+      transform: rotate(90deg);
+    }
+  }
+
+  &__button:hover {
+    opacity: 1;
+  }
+}
