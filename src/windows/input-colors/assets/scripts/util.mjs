@@ -1,3 +1,5 @@
+import { AUTHOR } from './ColorCombination.mjs';
+
 // function to reveal and hide 'emptyHolder' status of the content section
 export function reactIfEmpty(contentSection) {
   // finding empty holder in content section
@@ -31,7 +33,7 @@ export function isUniqueCombination(combination, combinationsHolder) {
   })
 }
 
-function clearObjects(savings, issuesHolder, combinationsHolder) {
+export function clearObjects(savings, issuesHolder, combinationsHolder) {
   savings.combinations = [];
   savings.issues = [];
   savings.length = 0;
