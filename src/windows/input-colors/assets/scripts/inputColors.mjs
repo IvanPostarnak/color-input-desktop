@@ -2,7 +2,7 @@ import ColorCombination from './ColorCombination.mjs';
 import Issue from './Issue.mjs';
 import convertToStandard from './convertToStandard.mjs';
 import { AUTHOR } from './ColorCombination.mjs';
-import { isValidColorCodeLength, isValidColorCode, isPossibleStarter } from './isValidCombination.mjs';
+import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './isValidColorInput.mjs';
 import { revealPopupWindow, hidePopupWindow } from './revealAndHideWindow.mjs';
 
 
@@ -338,7 +338,7 @@ arrayOfInputLines.forEach((inputLine) => {
     let inputArray = String(inputElement.value).trim().toLowerCase().split('');
 
     // checking the first element if it is possible starter and ...
-    let isHashtaged = isPossibleStarter(inputArray[0]);
+    let isHashtaged = isPossibleColorStarter(inputArray[0]);
 
     // ... change hashtag status if it was not hashtaged by user
     toggleHashtag(inputLine, isHashtaged, inputArray.length);
@@ -350,7 +350,7 @@ arrayOfInputLines.forEach((inputLine) => {
 
     // checking the code part of inputArray on validation and...
     let isValidCode = isValidColorCode(inputArray) 
-                      && isValidColorCodeLength(inputArray.length)
+                      && isValidColorLength(inputArray.length)
                       && combination.contains(inputArray) === false;
 
     // ...change acception status of input line based on the isValidCode value + input.length
