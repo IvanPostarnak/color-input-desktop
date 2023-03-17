@@ -1,6 +1,6 @@
 import ColorCombination from './ColorCombination.mjs';
 import Issue from './Issue.mjs';
-import convertToStandard from './convertToStandard.mjs';
+import { convertTextToStandard } from './convertTextToStandard.mjs';
 import { AUTHOR } from './ColorCombination.mjs';
 import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './isValidColorInput.mjs';
 import { revealPopupWindow, hidePopupWindow } from './revealAndHideWindow.mjs';
@@ -467,8 +467,8 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
   event.preventDefault();
 
   // standartization of input text
-  let convertedName = convertToStandard(issueReportForm.querySelector('.js-issue-report-form-name').value);
-  let convertedDescription = convertToStandard(issueReportForm.querySelector('.js-issue-report-form-description').value);
+  let convertedName = convertTextToStandard(issueReportForm.querySelector('.js-issue-report-form-name').value);
+  let convertedDescription = convertTextToStandard(issueReportForm.querySelector('.js-issue-report-form-description').value);
 
   // set issue variable
   let issue = new Issue();

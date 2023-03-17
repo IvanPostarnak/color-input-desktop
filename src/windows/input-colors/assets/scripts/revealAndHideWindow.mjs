@@ -1,4 +1,3 @@
-// popup revealer
 export function revealPopupWindow(popupWindow) {
   popupWindow.classList.remove('hidden');
 
@@ -9,7 +8,6 @@ export function revealPopupWindow(popupWindow) {
   });
 }
 
-// popup hider
 export function hidePopupWindow(popupWindow) {
   popupWindow.classList.add('hidden');
 }
