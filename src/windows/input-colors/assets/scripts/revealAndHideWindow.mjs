@@ -1,13 +1,13 @@
-export function revealPopupWindow(popupWindow) {
-  popupWindow.classList.remove('hidden');
+export function revealWindow(window) {
+  window.classList.remove('hidden');
 
   document.addEventListener('click', (event) => {
-    if (event.target === popupWindow) {
-      hidePopupWindow(popupWindow);
+    if (event.target === window) {
+      hideWindow(window);
     }
   });
 }
 
-export function hidePopupWindow(popupWindow) {
-  popupWindow.classList.add('hidden');
+export function hideWindow(window) {
+  window.classList.add('hidden');
 }
