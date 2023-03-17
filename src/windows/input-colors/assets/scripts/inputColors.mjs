@@ -1,73 +1,11 @@
-const AUTHOR = "author";
+import ColorCombination from './ColorCombination.mjs';
+import Issue from './Issue.mjs';
+import convertToStandard from './convertToStandard.mjs';
+import { AUTHOR } from './ColorCombination.mjs';
+import { isValidColorCodeLength, isValidColorCode, isPossibleStarter } from './isValidCombination.mjs';
+import { revealPopupWindow, hidePopupWindow } from './revealAndHideWindow.mjs';
 
-const MIN_AMOUNT_OF_COLORS = 2;
-const MAX_AMOUNT_OF_COLORS = 6;
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
-class ColorCombination {
-  colors = [];
 
-  static minLength = MIN_AMOUNT_OF_COLORS;
-  static maxLength = MAX_AMOUNT_OF_COLORS;
-  length = 0;
-
-  quality = 100.00;
-  approvedStatus = false;
-
-  date = "";
-  history = "";
-
-  author = AUTHOR;
-
-  constructor() {
-    
-  };
-
-  isEmpty() {
-    return this.length < 1 ? true : false;
-  }
-
-  isFull() {
-    return this.length === this.getMaxLength() ? true : false;
-  }
-
-  isReadyToSave() {
-    return this.length >= ColorCombination.getMinLength() ? true : false;
-  }
-
-  setColorAt(index, value) {
-    this.colors[index] = value;
-    this.length++;
-  }
-
-  removeColorAt(index) {
-    if (this.colors[index] === undefined) {
-      return;
-    }
-      
-    this.colors[index] = undefined;
-    this.length--;
-  }
-
-  getLength() {
-    return this.length;
-  }
-
-  static getMinLength() {
-    return this.minLength;
-  }
-
-  static getMaxLength() {
-    return this.maxLength;
-  }
-
-  contains(colorCodeArray) {
-    let colorString = colorCodeArray.join('');
-    return this.colors.some((color) => {
-      return color === colorString;
-    })
-  }
-}
 /////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////SESSION////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -456,30 +394,6 @@ function isUniqueCombination(combination, combinationsHolder) {
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-// line of valid symbold of hexadecimal system
-const VALID_COLOR_SYMBOLS = "0123456789abcdef";
-
-// possible starter of colorcode - will be ignored by the way
-const POSSIBLE_INPUT_STARTERS = "#";
-
-// the only possible length of color code
-const LENGTH_OF_COLOR_CODE = 6;
-
-function isValidColorCodeLength(length) {
-  return length === LENGTH_OF_COLOR_CODE ? true : false;
-}
-
-function isValidColorCode(arrayOfSymbols) {
-  return arrayOfSymbols.every((symbol) => {
-    return VALID_COLOR_SYMBOLS.indexOf(symbol) > -1;
-  });
-}
-
-function isPossibleStarter(starterSymbol) {
-  return POSSIBLE_INPUT_STARTERS.indexOf(starterSymbol) > -1 ? true : false;
-}
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
 function toggleAcceptionStatus(inputLine, isValidCode, lengthOfColorCode) {
   // finding 2 elements of the color line: accept and reject
   let acceptMark = inputLine.querySelector('.js-accept');
@@ -545,40 +459,6 @@ issueOpener.addEventListener('click', (event) => {
 });
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
-// popup revealer
-function revealPopupWindow(popupWindow) {
-  popupWindow.classList.remove('hidden');
-
-  document.addEventListener('click', (event) => {
-    if (event.target === popupWindow) {
-      hidePopupWindow(popupWindow);
-    }
-  });
-}
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
-// popup hider
-function hidePopupWindow(popupWindow) {
-  popupWindow.classList.add('hidden');
-}
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
-class Issue {
-  name = "";
-  description = "";
-  attachments = [];
-
-  status = "created";
-  date = "";
-  history = "";
-  author = AUTHOR;
-
-  constructor() {
-    
-  };
-}
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
 // finding issue-report-form
 const issueReportForm = document.querySelector('.js-issue-report-form');
 
@@ -625,7 +505,6 @@ const issueReportForm = document.querySelector('.js-issue-report-form');
   issueReportForm.reset();
   hidePopupWindow(issuePopupWindow);
 })
-
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 // function to create new issue note
@@ -651,26 +530,26 @@ function createIssueNote() {
 
   return issueNote;
 }
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
+
+
 // function to fill IssueNote with actual data
 function fillIssueNote(issueNote, issue) {
   issueNote.childNodes[0].textContent = issue.name;
   issueNote.childNodes[1].textContent = issue.description;
 }
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
+
+
 // set script of removing evelemt from DOM and issues holder
 function createDeletingScriptForDeletingIssueButton(issueNote, issuesHolder) {
   issueNote.lastChild.addEventListener('click', () => {
     // get id of deleting combination
-    let deletengId = issueNote.getAttribute('id');
-    console.log(`deleting id: ${deletengId}`);
+    let deletingId = issueNote.getAttribute('id');
+    // console.log(`deleting id: ${deletingId}`);
 
     // delete this combination from saved issues
-    issuesHolder.issues.splice(deletengId, 1);
+    issuesHolder.issues.splice(deletingId, 1);
     issuesHolder.length = issuesHolder.issues.length;
-    console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
+    // console.log(`issuesHolder = ${JSON.stringify(issuesHolder)}`);
 
     // delete this issueNote from the DOM
     issueNote.remove()
@@ -683,28 +562,3 @@ function createDeletingScriptForDeletingIssueButton(issueNote, issuesHolder) {
     reactIfEmpty(sessionWindowContentIssues);
   })
 }
-/////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
-// template of universal function to convert input text into appropriate format
-function convertToStandard(text) {
-  let startedArrayOfSentences = text.trim().split('.');
-  // console.log(`startedArray: ${startedArrayOfSentences}`);
-
-  let loweredArrayOfSentences = startedArrayOfSentences.map((sentence) => {
-    return sentence.trim().toLowerCase();
-  })
-  // console.log(`loweredArray: ${loweredArrayOfSentences}`);
-
-  let capitalizedArrayOfSentences = loweredArrayOfSentences.map((sentence) => {
-    if (sentence === '') {
-      return;
-    };
-    return sentence[0].toUpperCase() + sentence.slice(1);
-  })
-  // console.log(`capitalArray: ${capitalizedArrayOfSentences}`);
-
-  return capitalizedArrayOfSentences.join('. ');
-}
-/////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////THEME SWITCHER/////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////
