@@ -44,7 +44,7 @@ function createInputColorsWindow() {
     
   });
 
-  inputColorsWindow.loadFile(__dirname + "/../windows/input-colors/input-colors.html")
+  inputColorsWindow.loadFile(__dirname + "/../windows/input-colors/color-input.html")
   .then(() => {
     return inputColorsWindow;
   })
