@@ -1,5 +1,7 @@
 import { revealSubWindow } from './util/revealHideSubWindow.mjs';
-import { clearObjects } from './util/util.mjs';
+import { setDefaultSavings } from './util/setDefault.mjs';
+import { setDefaultIssuesHolder } from './util/setDefault.mjs';
+import { setDefaultCombinationsHolder} from './util/setDefault.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 import { extractColorCombinationsIntoSavings } from './util/session/saving/extractColorCombinations.mjs';
 import { extractIssuesIntoSavings } from './util/session/saving/extractIssues.mjs';
@@ -46,7 +48,9 @@ export function makeSessionDataSavingButtonSaveData(savingButton, combinationsHo
     // sending data indeed
     sendSavings();
     // clearing current states of objects
-    clearObjects(savings, issuesHolder, combinationsHolder);
+    setDefaultSavings(savings);
+    setDefaultIssuesHolder(issuesHolder);
+    setDefaultCombinationsHolder(combinationsHolder);
     // renew counter of combinations and issues
     sessionDataCombinationsCounter.textContent = combinationsHolder.length;
     revealCounterlIfNotEmpty(sessionDataCombinationsCounter);
