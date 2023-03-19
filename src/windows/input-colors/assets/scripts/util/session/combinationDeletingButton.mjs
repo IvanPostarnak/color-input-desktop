@@ -1,5 +1,5 @@
-import { revealCounterlIfNotEmpty } from './../revealCounter.mjs';
-import { reactIfEmpty } from './../revealEmptyHolder.mjs';
+import { revealCounterlIfNotEmpty } from '../revealCounter.mjs';
+import { reactIfEmpty } from '../revealEmptyHolder.mjs';
 
 const sessionDataController = document.querySelector('.js-session-data-controller');
 const sessionDataCombinationsCounter = sessionDataController.querySelector('.js-combinations-data-controller-counter');

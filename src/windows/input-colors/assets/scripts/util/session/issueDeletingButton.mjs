@@ -1,5 +1,5 @@
-import { revealCounterlIfNotEmpty } from './../revealCounter.mjs';
-import { reactIfEmpty } from './../revealEmptyHolder.mjs';
+import { revealCounterlIfNotEmpty } from '../revealCounter.mjs';
+import { reactIfEmpty } from '../revealEmptyHolder.mjs';
 
 const sessionDataWindow = document.querySelector('.js-session-data-window');
 const sessionDataWindowContentIssues = sessionDataWindow.querySelector('.js-session-data-content-issues');

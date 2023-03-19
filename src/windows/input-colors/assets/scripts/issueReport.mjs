@@ -1,8 +1,8 @@
 import { revealSubWindow, hideSubWindow } from './util/revealHideSubWindow.mjs';
 import { convertTextToStandard } from './util/issues/convertTextToStandard.mjs';
-import { fillIssueNoteWithData } from './util/issues/fillIssueNoteWithData.mjs';
-import { createDeletingScriptForIssueDeletingButton } from './util/issues/issueDeletingButton.mjs';
-import { createIssueNoteElement } from './util/issues/createIssueNoteElement.mjs';
+import { fillIssueNoteWithData } from './util/session/fillIssueNoteWithData.mjs';
+import { createDeletingScriptForIssueDeletingButton } from './util/session/issueDeletingButton.mjs';
+import { createIssueNoteElement } from './util/session/createIssueNoteElement.mjs';
 import { setDeleterButton } from './util/session/setDeleteButton.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 import { reactIfEmpty } from './util/revealEmptyHolder.mjs';
