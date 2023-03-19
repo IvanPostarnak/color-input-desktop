@@ -1,4 +1,4 @@
-import { AUTHOR } from './ColorCombination.mjs';
+import { AUTHOR } from './classes/ColorCombination.mjs';
 import { makeIssueOpenerOpenWindow, makeIssueReportFormSaveReport } from './issueReport.mjs';
 import { makeColorInputsValidateInputs, makeColorInputFormSaveCombination} from './inputCombination.mjs';
 import { makeSessionDataOpenersOpenWindow, makeSessionDataSavingButtonSaveData } from './sessionData.mjs';

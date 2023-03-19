@@ -1,6 +1,9 @@
-import ColorCombination from './ColorCombination.mjs';
-import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './isValidColorInput.mjs';
-import { reactIfEmpty, setDeleterButton, revealCounterlIfNotEmpty, isUniqueCombination } from './util.mjs';
+import ColorCombination from './classes/ColorCombination.mjs';
+import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './util/isValidColorInput.mjs';
+import { setDeleterButton } from './util/util.mjs';
+import { isUniqueCombination } from './util/isUniqueCombination.mjs'
+import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
+import { reactIfEmpty } from './util/revealEmptyHolder.mjs';
 
 const sessionDataController = document.querySelector('.js-session-data-controller');
 const sessionDataCombinationsCounter = sessionDataController.querySelector('.js-combinations-data-controller-counter');

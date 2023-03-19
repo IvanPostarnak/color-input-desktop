@@ -1,7 +1,9 @@
-import { revealWindow, hideWindow } from './revealAndHideWindow.mjs';
-import { convertTextToStandard } from './convertTextToStandard.mjs';
-import { revealCounterlIfNotEmpty, setDeleterButton, reactIfEmpty } from './util.mjs';
-import Issue from './Issue.mjs';
+import { revealWindow, hideWindow } from './util/revealAndHideWindow.mjs';
+import { convertTextToStandard } from './util/convertTextToStandard.mjs';
+import { setDeleterButton } from './util/util.mjs';
+import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
+import { reactIfEmpty } from './util/revealEmptyHolder.mjs';
+import Issue from './classes/Issue.mjs';
 
 const sessionDataController = document.querySelector('.js-session-data-controller');
 const sessionDataIssuesCounter = sessionDataController.querySelector('.js-issues-data-controller-counter');

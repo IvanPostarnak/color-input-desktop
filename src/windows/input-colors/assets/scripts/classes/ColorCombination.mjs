@@ -2,6 +2,7 @@ const MIN_AMOUNT_OF_COLORS = 2;
 const MAX_AMOUNT_OF_COLORS = 6;
 export const AUTHOR = "author";
 
+
 export default class ColorCombination {
   colors = [];
 

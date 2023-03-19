@@ -1,5 +1,6 @@
-import { revealWindow } from './revealAndHideWindow.mjs';
-import { clearObjects, revealCounterlIfNotEmpty } from './util.mjs';
+import { revealWindow } from './util/revealAndHideWindow.mjs';
+import { clearObjects } from './util/util.mjs';
+import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 
 export function makeSessionDataOpenersOpenWindow(sessionDataController, sessionDataWindow) {
   const combinationsDataOpener = sessionDataController.querySelector('.js-combinations-data-controller-opener');
