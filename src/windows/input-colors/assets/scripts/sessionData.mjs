@@ -1,4 +1,4 @@
-import { revealWindow } from './util/revealAndHideWindow.mjs';
+import { revealSubWindow } from './util/revealHideSubWindow.mjs';
 import { clearObjects } from './util/util.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 
@@ -13,7 +13,7 @@ export function makeSessionDataOpenersOpenWindow(sessionDataController, sessionD
     // reveal combinations - hide issues
     sessionDataWindowContentCombinations.classList.remove('hidden');
     sessionDataWindowContentIssues.classList.add('hidden');
-    revealWindow(sessionDataWindow);
+    revealSubWindow(sessionDataWindow);
   });
   
   issuesDataOpener.addEventListener('click', (event) => {
@@ -21,7 +21,7 @@ export function makeSessionDataOpenersOpenWindow(sessionDataController, sessionD
     // hide combinations - reveal issues
     sessionDataWindowContentCombinations.classList.add('hidden');
     sessionDataWindowContentIssues.classList.remove('hidden');
-    revealWindow(sessionDataWindow);
+    revealSubWindow(sessionDataWindow);
   });
 }
 

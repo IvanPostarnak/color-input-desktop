@@ -1,4 +1,4 @@
-import { revealWindow, hideWindow } from './util/revealAndHideWindow.mjs';
+import { revealSubWindow, hideSubWindow } from './util/revealHideSubWindow.mjs';
 import { convertTextToStandard } from './util/issues/convertTextToStandard.mjs';
 import { setDeleterButton } from './util/session/setDeleteButton.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
@@ -13,7 +13,7 @@ const sessionDataWindowContentIssues = sessionDataWindow.querySelector('.js-sess
 export function makeIssueOpenerOpenWindow(issueOpener, issueReportWindow) {
   issueOpener.addEventListener('click', (event) => {
     event.stopPropagation();
-    revealWindow(issueReportWindow);
+    revealSubWindow(issueReportWindow);
   });
 }
 
@@ -47,7 +47,7 @@ export function makeIssueReportFormSaveReport(issueReportForm, issueReportWindow
     // react if line is no longer empty
     reactIfEmpty(sessionDataWindowContentIssues);
     issueReportForm.reset();
-    hideWindow(issueReportWindow);
+    hideSubWindow(issueReportWindow);
   })
 }
 
