@@ -1,6 +1,6 @@
 import { revealWindow, hideWindow } from './util/revealAndHideWindow.mjs';
-import { convertTextToStandard } from './util/convertTextToStandard.mjs';
-import { setDeleterButton } from './util/util.mjs';
+import { convertTextToStandard } from './util/issues/convertTextToStandard.mjs';
+import { setDeleterButton } from './util/session/setDeleteButton.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 import { reactIfEmpty } from './util/revealEmptyHolder.mjs';
 import Issue from './classes/Issue.mjs';

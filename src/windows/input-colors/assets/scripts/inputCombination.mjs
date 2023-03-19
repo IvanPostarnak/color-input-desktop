@@ -1,7 +1,7 @@
 import ColorCombination from './classes/ColorCombination.mjs';
-import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './util/isValidColorInput.mjs';
-import { setDeleterButton } from './util/util.mjs';
-import { isUniqueCombination } from './util/isUniqueCombination.mjs'
+import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './util/combinations/isValidColorInput.mjs';
+import { setDeleterButton } from './util/session/setDeleteButton.mjs';
+import { isUniqueCombination } from './util/combinations/isUniqueCombination.mjs'
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 import { reactIfEmpty } from './util/revealEmptyHolder.mjs';
 

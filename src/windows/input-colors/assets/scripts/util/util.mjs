@@ -1,9 +1,5 @@
 import { AUTHOR } from '../classes/ColorCombination.mjs';
 
-export function setDeleterButton(line, id) {
-  line.setAttribute('id', id);
-}
-
 export function clearObjects(savings, issuesHolder, combinationsHolder) {
   savings.combinations = [];
   savings.issues = [];
