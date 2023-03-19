@@ -1,7 +1,14 @@
 import ColorCombination from './classes/ColorCombination.mjs';
 import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './util/combinations/isValidColorInput.mjs';
 import { setDeleterButton } from './util/session/setDeleteButton.mjs';
-import { isUniqueCombination } from './util/combinations/isUniqueCombination.mjs'
+import { isUniqueCombination } from './util/combinations/isUniqueCombination.mjs';
+import { createDeletingScriptForCombinationDeletingButton } from './util/combinations/combinationDeletingButton.mjs';
+import { toggleHashtag } from './util/combinations/toggleHashtagElement.mjs';
+import { toggleAcceptionStatus } from './util/combinations/toggleAcceptionStatus.mjs';
+import { setColorExample } from './util/combinations/setColorExample.mjs';
+import { resetInputForm } from './util/combinations/resetInputForm.mjs';
+import { fillColorLineWithData } from './util/combinations/fillColorLineWithData.mjs';
+import { createColorCombinationLineElement } from './util/combinations/createColorCombinationElement.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 import { reactIfEmpty } from './util/revealEmptyHolder.mjs';
 
@@ -72,113 +79,21 @@ export function makeColorInputFormSaveCombination(inputCombinationForm, combinat
       revealCounterlIfNotEmpty(sessionDataCombinationsCounter);
       // add colorLine of new combination into session window
       // create one color line using JS
-      let nextLine = createColorCombinationLine(saveCombination.length);
+      let nextLine = createColorCombinationLineElement(saveCombination.length);
       // fill color squares with colors of saved combination
-      fillColorLine(nextLine, saveCombination);
+      fillColorLineWithData(nextLine, saveCombination);
       // set deleting button
       setDeleterButton(nextLine, combinationsHolder.length - 1);
       // set script of deleting button
-      createDeletingScriptForDeletingCombinationButton(nextLine, combinationsHolder);
+      createDeletingScriptForCombinationDeletingButton(nextLine, combinationsHolder);
       // prepend created line
       sessionDataWindowContentCombinations.prepend(nextLine);
       // react if line is no longer empty
       reactIfEmpty(sessionDataWindowContentCombinations);
       // reset form using hand-made function because we need to clear colors
-      resetForm(inputCombinationForm);
+      resetInputForm(inputCombinationForm);
     } else {
       alert("Combination of colors needs at least 2 colors...");
     }
-  })
-}
-
-// set script of removing evelemt from DOM and combinations holder
-function createDeletingScriptForDeletingCombinationButton(line, combinationsHolder) {
-  line.childNodes[0].addEventListener('click', () => {
-    // get id of deleting combination
-    let deletengId = line.getAttribute('id');
-    console.log(`deleting id: ${deletengId}`);
-    // delete this combination from saved combinations
-    combinationsHolder.combinations.splice(deletengId, 1);
-    combinationsHolder.length = combinationsHolder.combinations.length;
-    console.log(`combinationsHolder = ${JSON.stringify(combinationsHolder)}`);
-    // delete this line from the DOM
-    line.remove()
-    // renew counter of combinations
-    sessionDataCombinationsCounter.textContent = combinationsHolder.length;
-    revealCounterlIfNotEmpty(sessionDataCombinationsCounter);
-    // react if line is no longer empty
-    reactIfEmpty(sessionDataWindowContentCombinations);
-  })
-}
-
-function toggleHashtag(inputLine, isHashtaged, lengthOfColorCode) {
-  // finding hashtag element of the color line
-  let hashtagMark = inputLine.querySelector('.js-hashtag');
-  // if colorCode is empty - turn switcher off
-  // otherwise choose state based on the hashtaged status
-  if (lengthOfColorCode === 0 || isHashtaged) {
-    hashtagMark.classList.add('unactive');
-  } else {
-    hashtagMark.classList.remove('unactive');
-  }
-}
-
-function toggleAcceptionStatus(inputLine, isValidCode, lengthOfColorCode) {
-  // finding 2 elements of the color line: accept and reject
-  let acceptMark = inputLine.querySelector('.js-accept');
-  let rejectMark = inputLine.querySelector('.js-reject');
-  // if colorCode is empty - turn switcher off
-  // otherwise choose state based on the validation status
-  if (lengthOfColorCode === 0) {
-    acceptMark.classList.add('unactive');
-    rejectMark.classList.add('unactive');
-  } else if (isValidCode) {
-    acceptMark.classList.remove('unactive');
-    rejectMark.classList.add('unactive');
-  } else {
-    acceptMark.classList.add('unactive');
-    rejectMark.classList.remove('unactive');
-  }
-}
-
-function setColorExample(inputLine, colorCode) {
-  const TRANSPARENT = "transparent";
-  let exampleMark = inputLine.querySelector('.js-example');
-  if (colorCode === undefined) {
-    exampleMark.style.backgroundColor = TRANSPARENT;
-  } else {
-    exampleMark.style.backgroundColor = `#${colorCode}`;
-  }
-}
-
-function resetForm(inputForm) {
-  let arrayOfInputs = Array.from(inputForm.querySelectorAll('input'));
-  arrayOfInputs.forEach((input) => {
-    input.value = "";
-    // Create and dispatch a new input event
-    let event = new Event("input", { bubbles: true });
-    input.dispatchEvent(event);
-  })
-}
-
-function createColorCombinationLine(amount) {
-  const colorLine = document.createElement('article');
-  colorLine.classList.add('session-data-components__color-combination');
-  for (let i = 0; i < amount; i++) {
-    let colorDiv = document.createElement('div');
-    colorDiv.classList.add('session-data-components__single-color');
-    colorLine.append(colorDiv);
-  }
-  const combinationDeleter = document.createElement('button');
-  combinationDeleter.classList.add('session-data-components__combination-deleter');
-  colorLine.prepend(combinationDeleter);
-  return colorLine;
-}
-
-function fillColorLine(line, combination) {
-  let i = 1;
-  combination.colors.forEach((color) => {
-    line.childNodes[i].style.backgroundColor = `#${color}`;
-    i++;
   })
 }
