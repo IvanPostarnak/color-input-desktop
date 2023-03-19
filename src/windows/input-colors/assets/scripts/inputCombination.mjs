@@ -1,14 +1,14 @@
 import ColorCombination from './classes/ColorCombination.mjs';
 import { isValidColorLength, isValidColorCode, isPossibleColorStarter } from './util/combinations/isValidColorInput.mjs';
-import { setDeleterButton } from './util/session/setDeleteButton.mjs';
+import { setDeleterButton } from './util/session/render/setDeleteButton.mjs';
 import { isUniqueCombination } from './util/combinations/isUniqueCombination.mjs';
-import { createDeletingScriptForCombinationDeletingButton } from './util/session/combinationDeletingButton.mjs';
+import { createDeletingScriptForCombinationDeletingButton } from './util/session/render/combinationDeletingButton.mjs';
 import { toggleHashtag } from './util/combinations/toggleHashtagElement.mjs';
 import { toggleAcceptionStatus } from './util/combinations/toggleAcceptionStatus.mjs';
 import { setColorExample } from './util/combinations/setColorExample.mjs';
 import { resetInputForm } from './util/combinations/resetInputForm.mjs';
-import { fillColorLineWithData } from './util/session/fillColorLineWithData.mjs';
-import { createColorCombinationLineElement } from './util/session/createColorCombinationElement.mjs';
+import { fillColorLineWithData } from './util/session/render/fillColorLineWithData.mjs';
+import { createColorCombinationLineElement } from './util/session/render/createColorCombinationElement.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
 import { reactIfEmpty } from './util/revealEmptyHolder.mjs';
 

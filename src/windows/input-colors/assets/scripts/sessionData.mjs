@@ -1,6 +1,10 @@
 import { revealSubWindow } from './util/revealHideSubWindow.mjs';
 import { clearObjects } from './util/util.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
+import { extractColorCombinationsIntoSavings } from './util/session/saving/extractColorCombinations.mjs';
+import { extractIssuesIntoSavings } from './util/session/saving/extractIssues.mjs';
+import { setDateOfSavings } from './util/session/saving/setDate.mjs';
+import { sendSavings } from './util/session/saving/sendSavings.mjs';
 
 export function makeSessionDataOpenersOpenWindow(sessionDataController, sessionDataWindow) {
   const combinationsDataOpener = sessionDataController.querySelector('.js-combinations-data-controller-opener');
@@ -53,43 +57,4 @@ export function makeSessionDataSavingButtonSaveData(savingButton, combinationsHo
     sessionDataWindowContentIssues.textContent = "";
     sessionDataWindowContentCombinations.textContent = "";
   })
-}
-
-export function extractColorCombinationsIntoSavings(savings, combinationsHolder) {
-  if (combinationsHolder.combinations == undefined) return;
-  combinationsHolder.combinations.forEach((combination) => {
-    savings.combinations.push(JSON.parse(JSON.stringify(combination)));
-    savings.length += combinationsHolder.length;
-  })
-}
-
-export function extractIssuesIntoSavings(savings, issuesHolder) {
-  if (issuesHolder.issues == undefined) return;
-  issuesHolder.issues.forEach((issue) => {
-    savings.issues.push(JSON.parse(JSON.stringify(issue)));
-    savings.length += issuesHolder.length;
-  })
-}
-
-export function setDateOfSavings(savings) {
-  if (savings.length === 0) return;
-  let timeOfSendingSavings = new Date();
-  
-  if (savings.combinations != undefined) {
-    savings.combinations.forEach((combination) => {
-      combination.date = timeOfSendingSavings;
-    })
-  }
-
-  if (savings.issues != undefined) {
-    savings.issues.forEach((issue) => {
-      issue.date = timeOfSendingSavings;
-    })
-  }
-
-  savings.date = timeOfSendingSavings;
-}
-
-export function sendSavings() {
-
 }
