@@ -5,6 +5,7 @@ import { setDateOfSavings } from './util/session/saving/setDate.mjs';
 import { sendSavings } from './util/session/saving/sendSavings.mjs';
 import { setDefaultSavings, setDefaultIssuesHolder, setDefaultCombinationsHolder } from './util/setDefault.mjs';
 import { revealCounterlIfNotEmpty } from './util/revealCounter.mjs';
+import { clearContentSection } from './util/session/render/clearContentSection.mjs';
 
 const sessionDataController = document.querySelector('.js-session-data-controller');
 const combinationsDataOpener = sessionDataController.querySelector('.js-combinations-data-controller-opener');
@@ -57,9 +58,8 @@ export function makeSessionDataSavingButtonSaveData(combinationsHolder, issuesHo
     revealCounterlIfNotEmpty(sessionDataCombinationsCounter);
     revealCounterlIfNotEmpty(sessionDataIssuesCounter);
 
-    // remove all color lines and issue notes form Session window
-    // REWORK - it removes 'empty' holder
-    sessionDataWindowContentIssues.textContent = "";
-    sessionDataWindowContentCombinations.textContent = "";
+    // remove all color lines and issue notes from Session window
+    clearContentSection(sessionDataWindowContentIssues);
+    clearContentSection(sessionDataWindowContentCombinations);
   })
 }
