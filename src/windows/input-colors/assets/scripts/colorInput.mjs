@@ -30,22 +30,11 @@ const savings = {
 };
 
 
-const sessionDataController = document.querySelector('.js-session-data-controller');
-const sessionDataWindow = document.querySelector('.js-session-data-window');
-const sessionDataSavingButton = sessionDataWindow.querySelector('.js-session-data-button');
+makeSessionDataOpenersOpenWindow();
+makeSessionDataSavingButtonSaveData(combinationsHolder, issuesHolder, savings);
 
-makeSessionDataOpenersOpenWindow(sessionDataController, sessionDataWindow);
-makeSessionDataSavingButtonSaveData(sessionDataSavingButton, combinationsHolder, issuesHolder, savings, sessionDataController, sessionDataWindow);
+makeIssueOpenerOpenWindow();
+makeIssueReportFormSaveReport(issuesHolder);
 
-const issueOpener = document.querySelector('.js-issue-popup-opener');
-const issueReportWindow = document.querySelector('.js-issue-report-window');
-const issueReportForm = document.querySelector('.js-issue-report-form');
-
-makeIssueOpenerOpenWindow(issueOpener, issueReportWindow);
-makeIssueReportFormSaveReport(issueReportForm, issueReportWindow, issuesHolder);
-
-const arrayOfInputLines = Array.from(document.querySelectorAll('.js-input-line'));
-const inputCombinationForm = document.querySelector('.js-input-form');
-
-makeColorInputsValidateInputs(arrayOfInputLines);
-makeColorInputFormSaveCombination(inputCombinationForm, combinationsHolder);
+makeColorInputsValidateInputs();
+makeColorInputFormSaveCombination(combinationsHolder);
