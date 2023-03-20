@@ -4,6 +4,7 @@ const path = require('path');
 function createInputColorsWindow(title) {
   const PRELOADER_PATH = path.resolve(__dirname, '..', '..', 'preloader', 'preloader.js');
   const WINDOW_FILE_PATH = path.resolve(__dirname, '..', '..', 'windows', 'input-colors', 'color-input.html');
+  const WINDOW_ICON_PATH = path.resolve(__dirname, '..', '..', 'windows', 'input-colors', 'assets', 'img', 'color-input-favicon.ico');
   
   let inputColorsWindow = new BrowserWindow({
     title: title,
@@ -23,6 +24,8 @@ function createInputColorsWindow(title) {
   .catch((err) => {
     console.log(err);
   });
+
+  inputColorsWindow.setIcon(WINDOW_ICON_PATH);
 }
 
 module.exports = createInputColorsWindow;
