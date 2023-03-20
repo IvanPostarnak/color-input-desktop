@@ -2,11 +2,11 @@ const path = require('path');
 const { app } = require('electron');
 const { BrowserWindow } = require('electron');
 const { ipcMain } = require('electron');
-const { screen } = require('electron');
 const { nativeTheme } = require('electron');
 const { Menu } = require('electron');
-const { globalShortcut } = require('electron');
-const { Notification } = require('electron');
+
+const createInputColorsWindow = require('./util/inputColorWindow');
+
 
 const TITLE = 'Color Input';
 
@@ -15,7 +15,7 @@ Menu.setApplicationMenu(false);
 
 app.whenReady()
 .then(() => {
-  let inputColorsWindow = createInputColorsWindow();
+  let inputColorsWindow = createInputColorsWindow(TITLE);
 
   inputColorsWindow.once('ready-to-show', () => {
     inputColorsWindow.show();
@@ -31,27 +31,7 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('light-mode:toggle', toggleMainTheme);
 
-function createInputColorsWindow() {
-  let inputColorsWindow = new BrowserWindow({
-    title: TITLE,
-    width: 600,
-    height: 800,
-    webPreferences: {
-      preload: path.join(__dirname, "..", "preloader", "preloader.js")
-    },
-    resizable: false,
-    alwaysOnTop: true,
-    
-  });
 
-  inputColorsWindow.loadFile(__dirname + "/../windows/input-colors/color-input.html")
-  .then(() => {
-    return inputColorsWindow;
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-}
 
 function toggleMainTheme() {
   if (nativeTheme.shouldUseDarkColors) {
@@ -61,26 +41,3 @@ function toggleMainTheme() {
   }
   return nativeTheme.shouldUseDarkColors;
 }
-
-// function createPatternsWindow() {
-//   let primaryDisplay = screen.getPrimaryDisplay();
-//   let {width, height} = primaryDisplay.workAreaSize;
-
-//   let patternsWindow = new BrowserWindow({
-//     title: 'Beauty Code',
-//     width: width,
-//     height: height,
-//     webPreferences: {
-//       preload: __dirname + "/../preloader/preloader.js"
-//     },
-//     show: false
-//   });
-
-//   patternsWindow.loadFile(__dirname + "/../windows/patterns/patterns.html")
-//   .then(() => {
-//     return patternsWindow;
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-// }
