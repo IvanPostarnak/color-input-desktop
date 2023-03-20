@@ -6,10 +6,9 @@ const { nativeTheme } = require('electron');
 const { Menu } = require('electron');
 
 const createInputColorsWindow = require('./util/inputColorWindow');
-
+const toggleMainTheme = require('./util/toggleColorScheme');
 
 const TITLE = 'Color Input';
-
 nativeTheme.themeSource = 'dark';
 Menu.setApplicationMenu(false);
 
@@ -30,14 +29,3 @@ app.on('window-all-closed', () => {
 })
 
 ipcMain.handle('light-mode:toggle', toggleMainTheme);
-
-
-
-function toggleMainTheme() {
-  if (nativeTheme.shouldUseDarkColors) {
-    nativeTheme.themeSource = 'light';
-  } else {
-    nativeTheme.themeSource = 'dark';
-  }
-  return nativeTheme.shouldUseDarkColors;
-}
