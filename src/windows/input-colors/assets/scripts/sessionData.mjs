@@ -45,21 +45,27 @@ export function makeSessionDataSavingButtonSaveData(combinationsHolder, issuesHo
     extractColorCombinationsIntoSavings(savings, combinationsHolder);
     extractIssuesIntoSavings(savings, issuesHolder);
     setDateOfSavings(savings);
-    sendSavings();
-    
-    // clearing current states of objects
-    setDefaultSavings(savings);
-    setDefaultIssuesHolder(issuesHolder);
-    setDefaultCombinationsHolder(combinationsHolder);
 
-    // renew counter of combinations and issues
-    sessionDataCombinationsCounter.textContent = combinationsHolder.length;
-    sessionDataIssuesCounter.textContent = issuesHolder.length;
-    revealCounterlIfNotEmpty(sessionDataCombinationsCounter);
-    revealCounterlIfNotEmpty(sessionDataIssuesCounter);
+    let promise = sendSavings(savings);
+    promise.then((response) => {
+      if (response.status === 200) {
+        // clearing current states of objects
+        setDefaultSavings(savings);
+        setDefaultIssuesHolder(issuesHolder);
+        setDefaultCombinationsHolder(combinationsHolder);
 
-    // remove all color lines and issue notes from Session window
-    clearContentSection(sessionDataWindowContentIssues);
-    clearContentSection(sessionDataWindowContentCombinations);
+        // renew counter of combinations and issues
+        sessionDataCombinationsCounter.textContent = combinationsHolder.length;
+        sessionDataIssuesCounter.textContent = issuesHolder.length;
+        revealCounterlIfNotEmpty(sessionDataCombinationsCounter);
+        revealCounterlIfNotEmpty(sessionDataIssuesCounter);
+
+        // remove all color lines and issue notes from Session window
+        clearContentSection(sessionDataWindowContentIssues);
+        clearContentSection(sessionDataWindowContentCombinations);
+      } else {
+        setDefaultSavings(savings);
+      }
+    })
   })
 }
